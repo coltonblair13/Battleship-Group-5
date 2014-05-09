@@ -16,6 +16,9 @@ public class Battleship {
         myGame.displayHelp();
         Board boardSize = new Board();
         boardSize.displaySize();
+        
+        Game game = new Game();
+        game.displayPlayers();
     }
     
     public void getName() {
@@ -28,4 +31,7 @@ public class Battleship {
         System.out.println("Welcome, " + this.name + "\n");
         System.out.println(this.instructions);
     }
+    
+    
+    
 }
