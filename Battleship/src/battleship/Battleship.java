@@ -1,6 +1,6 @@
 package battleship;
 
-import java.util.Scanner;
+import java.util.Scanner; /*Imports the Scanner utility to read input*/
 
 public class Battleship {
     String name;
