@@ -18,7 +18,10 @@ public class Battleship {
         boardSize.displaySize();
         
         Game game = new Game();
-        game.displayPlayers();
+        game.displayWinningMessage();
+        
+        Player player1 = new Player();
+        player1.displayName();
     }
     
     public void getName() {
