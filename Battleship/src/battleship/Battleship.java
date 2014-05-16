@@ -24,6 +24,7 @@ public class Battleship {
         player1.displayName();
     }
     
+    
     public void getName() {
         Scanner input = new Scanner(System.in);
         System.out.println("Please enter your name: ");

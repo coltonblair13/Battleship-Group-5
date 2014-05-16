@@ -34,7 +34,9 @@ public class Game {
             + "\n\t Congratulations " + "this.winner.name" + "! You won the game!"
             + "\n\t Sorry " + "this.loser.name" + ", You are the loser."
             + "\n\t************************************************************";
-    
+    String errorMessage = "Invalid row and/or column. Please try again.\n"
+            +"Row must be a letter from A to J.\n"
+            + "Column must be a number from 1 to 10.";
     /*public Game(){
         this.playerA = new Player();
         this.playerA.name = "Nephi";
@@ -53,5 +55,46 @@ public class Game {
         this.playerA.displayName();
         this.playerB.displayName();
     }*/
-        
+    /*
+    In the hitOrMiss function, we wrote it with certain objects that are
+    still being created. We desk checked very thoroughly and otherwise
+    tested as much as we could, and will continue to debug tomorrow and Saturday
+    as the other parts are written.
+    -Ethan Stewart
+    */
+    public int locationArrayIndex(char locationString)
+    {
+        for (int i = 0, i < Location.locations.length, i++)
+        {
+            if(locationString == Location.locations[i])
+                return i;
+        }     
+    }
+    
+    public void hitOrMiss(char row, int column)
+    {
+        if(!(row >= A || row < K))
+            System.out.println(this.errorMessage);
+        if(!(column > 0 || column < 11))
+            System.out.println(this.errorMessage);
+        char locationString = row + (char) column;
+        int locationArray = this.locationArrayIndex(locationString);
+        if(Location.shipSpots[locationArray] == 0)
+        {
+            Location.shipSpots[locationArray].displayValue = (char) 88;
+            Location.shipSpots[locationArray].hits += 1;
+            Player.currentPlayer.hitsLeft -= 1;
+            System.out.println("\tYou got a hit!\n"
+                    + "\tYou need " + "Player.currentPlayer.hitsLeft"
+                    + " hits to win.\n");
+        }
+        else
+        {
+           Location.shipSpots[locationArray].displayValue = (char) 77;
+           System.out.println("\tYou missed!\n"
+                    + "\tYou need " + Player.currentPlayer.hitsLeft
+                    + " hits to win.\n");
+        }
+    }
+            
 }
