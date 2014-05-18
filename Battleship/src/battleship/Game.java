@@ -86,7 +86,7 @@ public class Game {
         if(guessValue < 0)
             System.out.println(this.errorMessage);
         int locationArray = this.locationArrayIndex(guess);
-        if(shipSpots[locationArray] == 0)
+        /*if(shipSpots[locationArray] == 0)
         {
             shipSpots.displayValue = (char) 88;
             shipSpots.hits += 1;
@@ -101,7 +101,7 @@ public class Game {
            System.out.println("\tYou missed!\n"
                     + "\tYou need " + "Player.currentPlayer.hitsLeft"
                     + " hits to win.\n");
-        }
+        }*/
     
     }
     Player player1 = new Player();

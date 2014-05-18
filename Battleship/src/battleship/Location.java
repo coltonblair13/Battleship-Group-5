@@ -66,16 +66,16 @@ public class Location {
             Scanner input = new Scanner(System.in);
             System.out.println("Enter desired ship location: ");
             String inputLocation = input.next();
-            char inputLocation;
+            //char inputLocation;
             for(int x = 0; x < 3; x++) {
                 char inputLocation += input.next().charAt(x);
             }
             Game check = new Game();
-            int desiredLocation;
+            /*int desiredLocation;
             if(desiredLocation < 0)
-                shipLocations[i] = "";
+                shipLocations[i] = "";*/
         }
-        for (int i = 0; i < listOfSpots.length; i++) {
+        /*for (int i = 0; i < listOfSpots.length; i++) {
             int counter = 0;
             if(shipLocations[counter] == listOfSpots[i])
                 listOfSpots[i] = '0';
@@ -83,7 +83,7 @@ public class Location {
                 counter++;
         }     
         return -1;
-    }
+    }*/
     
     
     
