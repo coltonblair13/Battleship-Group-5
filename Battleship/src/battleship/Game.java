@@ -34,9 +34,10 @@ public class Game {
             + "\n\t Congratulations " + "this.winner.name" + "! You won the game!"
             + "\n\t Sorry " + "this.loser.name" + ", You are the loser."
             + "\n\t************************************************************";
-    String errorMessage = "Invalid row and/or column. Please try again.\n"
+    String errorMessage = "Invalid row/column combination. Please try again.\n"
             +"Row must be a letter from A to J.\n"
-            + "Column must be a number from 1 to 10.";
+            + "Column must be a number from 1 to 10.\n"
+            + "Don't type any spaces between the row and column.";
     /*public Game(){
         this.playerA = new Player();
         this.playerA.name = "Nephi";
@@ -64,37 +65,88 @@ public class Game {
     */
     public int locationArrayIndex(char locationString)
     {
-        for (int i = 0, i < Location.locations.length, i++)
-        {
-            if(locationString == Location.locations[i])
+        Location locations = new Location();
+        char[] listOfSpots = locations.makeListOfSpots();
+        for (int i = 0; i < listOfSpots.length; i++) {
+            if(locationString == listOfSpots[i]) {
                 return i;
+            }            
         }     
+        return -1;
     }
     
-    public void hitOrMiss(char row, int column)
-    {
-        if(!(row >= A || row < K))
+    /*
+    This function
+    */
+    public void hitOrMiss(char guess) {
+        Player currentPlayer = new Player();
+        
+        Location shipSpots = new Location();
+        int guessValue = this.locationArrayIndex(guess);
+        if(guessValue < 0)
             System.out.println(this.errorMessage);
-        if(!(column > 0 || column < 11))
-            System.out.println(this.errorMessage);
-        char locationString = row + (char) column;
-        int locationArray = this.locationArrayIndex(locationString);
-        if(Location.shipSpots[locationArray] == 0)
+        int locationArray = this.locationArrayIndex(guess);
+        if(shipSpots[locationArray] == 0)
         {
-            Location.shipSpots[locationArray].displayValue = (char) 88;
-            Location.shipSpots[locationArray].hits += 1;
-            Player.currentPlayer.hitsLeft -= 1;
+            shipSpots.displayValue = (char) 88;
+            shipSpots.hits += 1;
+            currentPlayer.hitsLeft -= 1;
             System.out.println("\tYou got a hit!\n"
                     + "\tYou need " + "Player.currentPlayer.hitsLeft"
                     + " hits to win.\n");
         }
         else
         {
-           Location.shipSpots[locationArray].displayValue = (char) 77;
+           shipSpots[locationArray].displayValue = (char) 77;
            System.out.println("\tYou missed!\n"
-                    + "\tYou need " + Player.currentPlayer.hitsLeft
+                    + "\tYou need " + "Player.currentPlayer.hitsLeft"
                     + " hits to win.\n");
         }
+    
+    }
+    Player player1 = new Player();
+    Player player2 = new Player();
+    
+    public void endOfGameStats() {
+        int player1Hits = this.player1.player1Hits;
+        int player2Hits = this.player2.player2Hits;
+        int player1Misses = this.player1.player1Misses;
+        int player2Misses = this.player2.player2Misses;
+        int player1Shots = player1Hits + player1Misses;
+        int player2Shots = player2Hits + player2Misses;
+        String gameWinner;
+        if(player1Hits > player2Hits)
+            gameWinner = this.player1.name1;
+        else
+            gameWinner = this.player2.name2;
+        int gamesWonPlayer1 = this.player1.player1Wins;
+        int gamesLostPlayer1 = this.player1.player1Losses;
+        int gamesWonPlayer2 = this.player2.player2Wins;
+        int gamesLostPlayer2 = this.player2.player2Losses;
+        double player1WinPercent = (double) gamesWonPlayer1 / (double) 
+                this.player1.player1TotalGames * 100;
+        player1WinPercent = Math.round(player1WinPercent * 10) / 10;
+        double player1LosePercent = 100 - player1WinPercent;
+        double player2WinPercent = (double) gamesWonPlayer2 / (double) 
+                this.player2.player2TotalGames * 100;
+        player2WinPercent = Math.round(player2WinPercent * 10) / 10;
+        double player2LosePercent = 100 - player2WinPercent;
+        System.out.println("GAME OVER!");
+        System.out.println("Congratulations, " + gameWinner
+                    + "! You won!\n"
+                    + "\nStats for " + this.player1.name1
+                    + "\nHits:\t\t" + player1Hits
+                    + "\nMisses:\t\t" + player1Misses
+                    + "\nTotal Shots:\t" + player1Shots
+                    + "\n% Games Won:\t" + gamesWonPlayer1
+                    + "\n% Games Lost:\t" + gamesLostPlayer1);
+        System.out.println("\nStats for " + this.player2.name2
+                    + "\nHits:\t\t" + player2Hits
+                    + "\nMisses:\t\t" + player2Misses
+                    + "\nTotal Shots:\t" + player2Shots
+                    + "\n% Games Won:\t" + gamesWonPlayer2
+                    + "\n% Games Lost:\t" + gamesLostPlayer2);
+        
     }
             
 }

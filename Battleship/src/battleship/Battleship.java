@@ -11,7 +11,7 @@ public class Battleship {
                 + "your opponent's ships are. If you guess a location which \n"
                 + "contains part of a ship, it's a hit; otherwise, it's a miss.";
     public static void main(String[] args) {
-        Battleship myGame = new Battleship();
+        /*Battleship myGame = new Battleship();
         myGame.getName();
         myGame.displayHelp();
         Board boardSize = new Board();
@@ -22,6 +22,18 @@ public class Battleship {
         
         Player player1 = new Player();
         player1.displayName();
+        
+        Game showStats = new Game();
+        showStats.endOfGameStats();
+        
+        Location displaySpots = new Location();
+        displaySpots.listOfSpots();*/
+        
+        Board testBoard = new Board();
+        testBoard.createHitMissBoard();
+        
+        Board testBoard2 = new Board();
+        testBoard2.createPlayerBoard();
     }
     
     
