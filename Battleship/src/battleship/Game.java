@@ -65,20 +65,20 @@ public class Game {
     */
     public int locationArrayIndex(char locationString)
     {
-        Location locations = new Location();
+        /*Location locations = new Location();
         char[] listOfSpots = locations.makeListOfSpots();
         for (int i = 0; i < listOfSpots.length; i++) {
             if(locationString == listOfSpots[i]) {
                 return i;
             }            
-        }     
+        }*/     
         return -1;
     }
     
     /*
     This function
     */
-    public void hitOrMiss(char guess) {
+    /*public void hitOrMiss(char guess) {
         Player currentPlayer = new Player();
         
         Location shipSpots = new Location();
@@ -86,7 +86,7 @@ public class Game {
         if(guessValue < 0)
             System.out.println(this.errorMessage);
         int locationArray = this.locationArrayIndex(guess);
-        /*if(shipSpots[locationArray] == 0)
+        if(shipSpots[locationArray] == 0)
         {
             shipSpots.displayValue = (char) 88;
             shipSpots.hits += 1;
@@ -101,9 +101,9 @@ public class Game {
            System.out.println("\tYou missed!\n"
                     + "\tYou need " + "Player.currentPlayer.hitsLeft"
                     + " hits to win.\n");
-        }*/
+        }
     
-    }
+    }*/
     Player player1 = new Player();
     Player player2 = new Player();
     
