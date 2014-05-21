@@ -35,6 +35,22 @@ public class Board {
                            
         }
     }
+    /* This method is used for determining wither there is a hit or a miss on the 
+    board.  This method also creates the default values of the board. Author - Adam
+    */
+    public void hitMissBoard(){
+        int[] hitMissArray;
+        hitMissArray = new int[100];
+        for (int i=0, i < 100, i++); {
+            hitMissArray[i]=0;
+        }
+        for (int i = 0, i < 100, i++);{
+            system.out.println(hitMissArray[i] + "\t");
+            if((i + 1) % 10 == 0)
+                system.out.println(hitMisArray[i] + "\n");
+                           
+        }
+    }
     
     //Needs to be a public function, returns nothing so is void. And you can
     //name it whatever you want.
