@@ -67,7 +67,7 @@ public class HelpMenuView {
                 case "Q": 
                     break;
                 default: 
-                    System.out.println("Invalid input. Please select an option from the menu.");
+                    System.out.println("Invalid input. Please select a valid option from the menu.");
                     continue;
             }
         } while (!command.equals("Q"));  

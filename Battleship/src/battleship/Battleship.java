@@ -27,13 +27,13 @@ public class Battleship {
         showStats.endOfGameStats();
         
         Location displaySpots = new Location();
-        displaySpots.listOfSpots();
+        displaySpots.listOfSpots();*/
         
         Board testBoard = new Board();
         testBoard.createHitMissBoard();
         
         Board testBoard2 = new Board();
-        testBoard2.createPlayerBoard();*/
+        testBoard2.createPlayerBoard();
         
         HelpMenuView testHelp = new HelpMenuView();
         testHelp.getInput();

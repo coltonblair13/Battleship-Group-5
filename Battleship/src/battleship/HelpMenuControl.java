@@ -56,7 +56,7 @@ public class HelpMenuControl {
         displayHelpBorder();     
         System.out.println( 
                 "\tA computer based player automatically guesses a square "
-                + "\n\timmediatly after a real player in a single player game."
+                + "\n\timmediately after a real player in a single player game."
                 ); 
         displayHelpBorder();
     }
@@ -67,7 +67,7 @@ public class HelpMenuControl {
         System.out.println( 
                "\tEach player starts with five ships. One is five squares long, "
                + "\n\tone is four, two are three, and one is two. Each guess "
-               + "\n\tcontaining part of a ship is a hit; when all parts of a ship "
+               + "\n\tcontaining part of a ship is a hit; when all sections of a ship "
                + "\n\thave been hit, the ship is sunk."); 
         displayHelpBorder();
     }
