@@ -13,10 +13,10 @@ package battleship;
 public class MainMenuControl {
     public void startGame(long noPlayers) {
         /*
-        This function will contain code relevant to our project once we create
-        the appropriate functions in the Game class.
+        This function will contain code that will allow the user to start
+        a new game.
         */        
-        if (noPlayers != 1  &&  noPlayers != 2) {
+        /*if (noPlayers != 1  &&  noPlayers != 2) {
             System.out.println("startGame - invalid number of players specified.");
             return;
         }
@@ -31,6 +31,7 @@ public class MainMenuControl {
 
         /*GameMenuView gameMenu = new GameMenuView(game);
         gameMenu.getInput();*/
+        System.out.println("The startGame function works.");
     }
 
     
@@ -46,6 +47,9 @@ public class MainMenuControl {
     } 
     
     public void displayHelpMenu() {
+        /*
+        This function allows the user to access the Help menu.
+        */
         HelpMenuView helpMenu = new HelpMenuView();
         helpMenu.getInput();
     }

@@ -37,6 +37,9 @@ public class Battleship {
         
         HelpMenuView testHelp = new HelpMenuView();
         testHelp.getInput();
+        
+        MainMenuView testMain = new MainMenuView();
+        testMain.getInput();
     }
     
     
