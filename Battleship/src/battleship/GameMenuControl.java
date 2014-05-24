@@ -16,6 +16,10 @@ public class GameMenuControl {
     public GameMenuControl(){
         
     }
+
+    GameMenuControl(Game game) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     public void displayGameSetup() {
         this.displayMenuBorder();
         System.out.println("\tPlace the location of your ships.\n");
@@ -39,6 +43,30 @@ public class GameMenuControl {
     }
     public void displayMenuBorder(){
         System.out.println("\t===============================================================\n");
+    }
+
+    void takeTurn() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    void displayBoard() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    void startNewGame() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    void displayStatistics() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    void displayPreferencesMenu() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    void displayHelpMenu() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
