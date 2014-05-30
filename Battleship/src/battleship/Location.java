@@ -24,6 +24,8 @@ public class Location {
      *
      * @return
      */
+    
+    //Adding a comment to test my commit.
     public char[] makeListOfSpots() {
         char[] hitMissBoard = new char[100];
         char location = 'A';
