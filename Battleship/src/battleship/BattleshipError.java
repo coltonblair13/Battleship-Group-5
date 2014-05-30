@@ -15,8 +15,8 @@ class BattleshipError {
     public BattleshipError() {
     }
 
-    void displayError(String invalid_command_Please_enter_a_valid_comm) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void displayError(String errorText) {
+        System.out.println(errorText);
     }
     
 }
