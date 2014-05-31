@@ -29,4 +29,16 @@ public class Player {
     public void displayName() {
         System.out.println("The default player is " + this.name1);
     }
+    
+    public String setLoser() {
+        //This will contain code to set who the loser is.
+        String loser;
+        return loser;
+    }
+    
+    public String setWinner() {
+        //This will contain code to set who the winner is.
+        String winner;
+        return winner;
+    }
 }

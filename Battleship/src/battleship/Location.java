@@ -24,41 +24,62 @@ public class Location {
      *
      * @return
      */
-    /*public char[] makeListOfSpots() {
-        char[] hitMissBoard = new char[100];
-        char location = 'A';
-        for(int i = 0; i < hitMissBoard.length; i++) {
-            int counter = i % 10;
-            hitMissBoard[i] = location + (char) (counter + 49);
-            if((i + 1) % 10 == 0)
-                hitMissBoard[i] = location + (char) 49 + (char) 48;
-            if((i + 1) == 10)
-                location = 'B';
-            if((i + 1) == 20)
-                location = 'C';
-            if((i + 1) == 30)
-                location = 'D';
-            if((i + 1) == 40)
-                location = 'E';
-            if((i + 1) == 50)
-                location = 'F';
-            if((i + 1) == 60)
-                location = 'G';
-            if((i + 1) == 70)
-                location = 'H';
-            if((i + 1) == 80)
-                location = 'I';
-            if((i + 1) == 90)
-                location = 'J';
+    
+    //Adding a comment to test my commit.
+    
+    public String[][] makeStringListOfSpots() {
+        String[][] listOfSpots = new String[10][10];
+        String[] locationRow = { "A", "B", "C", "D", "E",
+            "F", "G", "H", "I", "J" };
+        String[] locationColumn = { "1", "2", "3", "4", "5",
+            "6", "7", "8", "9", "10" };
+        for (int row = 0; row < 10; row++)
+        {
+            for (int col = 0; col < 10; col++)
+            {
+                listOfSpots[row][col] = locationRow[row] + locationColumn[col];
+            }
         }
-        /*for(int i = 0; i < hitMissBoard.length; i++) {
-            System.out.println(hitMissBoard[i]);
-            if((i + 1) % 10 == 0)
-                System.out.println('\n');
-        }
-        return hitMissBoard;
+        
+        return listOfSpots;
     }
     
+    public void displayListOfSpots() {
+        Location listOfSpotsObject = new Location();
+        String[][] listOfSpots = listOfSpotsObject.makeStringListOfSpots();
+        
+        for (int i = 0; i < 10; i++)
+        {
+            for (int j = 0; j < 10; j++)
+            {
+                System.out.println(listOfSpots[i][j]);
+            }
+            System.out.println("\n");
+        }
+    }
+    
+    public String[] createListOccupiedSpots(int shipSpots) {
+        String[] occupiedSpots = new String[shipSpots];
+        for (int i = 0; i < shipSpots; i++)
+        {
+            Scanner input = new Scanner(System.in);
+            System.out.println("Please enter a location: ");
+            occupiedSpots[i] = input.nextLine();
+        }
+        
+        return occupiedSpots;
+    }
+    
+    public void displayOccupiedSpots() {
+        Location occupiedSpotsObject = new Location();
+        String[] occupiedSpotsList = occupiedSpotsObject.createListOccupiedSpots(5);
+        for (int i = 0; i < occupiedSpotsList.length; i++)
+        {
+            System.out.println(occupiedSpotsList[i]);
+        }
+    }
+    
+    /*
     public boolean shipLocations() {
         Location locations = new Location();
         char[] listOfSpots = locations.makeListOfSpots();
