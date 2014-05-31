@@ -148,5 +148,26 @@ public class Game {
                     + "\n% Games Lost:\t" + gamesLostPlayer2);
         
     }
-            
+    // Author: Adam 
+    //This function is to record the loser in the game.
+     public void recordLoser() {
+        if (this.currentPlayer == this.player1) {
+            this.loser = this.player1;
+            this.winner = this.player2;
+        } else {
+            this.loser = this.player2;
+            this.winner = this.player1;
+        }
+
+        long noWins = this.winner.wins;
+        noWins++;
+        this.winner.wins = noWins;
+        long noLosses = this.loser.losses;
+        noLosses++;
+        this.loser.losses = noLosses;
+
+        this.status = Game.loser;
+        
+    }
+     
 }
