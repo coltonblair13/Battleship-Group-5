@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package battleship;
 
 import java.util.Scanner;
@@ -12,22 +6,22 @@ import java.util.Scanner;
  *
  * @author Ethan Stewart
  */
-public class HelpMenuView {
-    public final static String[][] menuItems = {
-        {"B", "The board"},
-        {"C", "A computer player"}, 
-        {"G", "The game of Battleship"},
-        {"H", "Hits and Misses"},
-        {"R", "A regular player"},
-        {"S", "Ships"},
-        {"Q", "Quit Help"}        
+public class GameChoicesView {
+    private final static String[][] menuItems = {
+        {"G", "Make your guess"},
+        {"P", "Display your board"}, 
+        {"O", "Display opponent's board (your hits and misses)"},
+        {"N", "New game"},
+        {"S", "Calculate statistics"},
+        {"H", "Help"},
+        {"Q", "Quit"}        
     };
     
     // Create instance of the HelpMenuControl (action) class
-    private HelpMenuControl helpMenuControl = new HelpMenuControl();
+    private GameChoicesControl gameChoicesControl = new GameChoicesControl();
     
     // Default constructor
-    public HelpMenuView() {
+    public GameChoicesView() {
         
     } 
     
@@ -45,24 +39,26 @@ public class HelpMenuView {
             command = inFile.nextLine();
             command = command.trim().toUpperCase();
             
+            //Each option in this switch will eventually be updated
+            //to call an actual function from the GameChoicesControl class.
             switch (command) {
-                case "B":
-                    this.helpMenuControl.displayBoardHelp();
-                    break;
-                case "C":
-                    this.helpMenuControl.displayComputerPlayerHelp();
-                    break;
                 case "G":
-                    this.helpMenuControl.displayGameHelp();
+                    this.gameChoicesControl.makeNewGuess();
+                    break;
+                case "P":
+                    this.gameChoicesControl.displayOwnBoard();
+                    break;
+                case "O":
+                    this.gameChoicesControl.displayComputerPlayerHelp();
                     break;                  
-                case "H":
-                    this.helpMenuControl.displayHitsMissesHelp();
+                case "N":
+                    this.gameChoicesControl.displayHitsMissesHelp();
                     break;
-                case "R":
-                    this.helpMenuControl.displayRealPlayerHelp();
+                case "S":
+                    this.gameChoicesControl.displayRealPlayerHelp();
                     break;
-                 case "S":
-                    this.helpMenuControl.displayShipHelp();
+                 case "H":
+                    this.gameChoicesControl.displayShipHelp();
                     break; 
                 case "Q": 
                     break;

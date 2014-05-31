@@ -23,9 +23,9 @@ me to explain that better.
 public class Game {
     String gameType;
     /*Player playerA;
-    Player playerB;
+    Player playerB;*/
     Player currentPlayer;
-    Player otherPlayer;*/
+    Player otherPlayer;
     Player winner;
     Player loser;
     String status;
@@ -158,6 +158,15 @@ public class Game {
             this.loser = this.player2;
             this.winner = this.player1;
         }
+        
+        /*
+        Adam--
+        I changed a couple of variables so that the error messages would
+        go away and I could push this to GitHub. If you have any questions about
+        what I did, you can text me or email me or possibly set up a 
+        Google Hangout.
+        --Ethan
+        */
 
         long noWins = this.winner.wins;
         noWins++;
@@ -166,7 +175,7 @@ public class Game {
         noLosses++;
         this.loser.losses = noLosses;
 
-        this.status = Game.loser;
+        this.status = new Player().setLoser();
         
     }
      

@@ -26,40 +26,6 @@ public class Location {
      */
     
     //Adding a comment to test my commit.
-    public char[] makeListOfSpots() {
-        char[] hitMissBoard = new char[100];
-        char location = 'A';
-        for(int i = 0; i < hitMissBoard.length; i++) {
-            int counter = i % 10;
-            hitMissBoard[i] = (char) (location + (char) (counter + 49));
-            if((i + 1) % 10 == 0)
-                hitMissBoard[i] = (char) (location + (char) 49 + (char) 48);
-            if((i + 1) == 10)
-                location = 'B';
-            if((i + 1) == 20)
-                location = 'C';
-            if((i + 1) == 30)
-                location = 'D';
-            if((i + 1) == 40)
-                location = 'E';
-            if((i + 1) == 50)
-                location = 'F';
-            if((i + 1) == 60)
-                location = 'G';
-            if((i + 1) == 70)
-                location = 'H';
-            if((i + 1) == 80)
-                location = 'I';
-            if((i + 1) == 90)
-                location = 'J';
-        }
-        /*for(int i = 0; i < hitMissBoard.length; i++) {
-            System.out.println(hitMissBoard[i]);
-            if((i + 1) % 10 == 0)
-                System.out.println('\n');
-        }*/
-        return hitMissBoard;
-    }
     
     public String[][] makeStringListOfSpots() {
         String[][] listOfSpots = new String[10][10];

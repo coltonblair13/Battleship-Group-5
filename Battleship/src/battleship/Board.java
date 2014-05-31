@@ -39,24 +39,18 @@ public class Board {
     
     //Needs to be a public function, returns nothing so is void. And you can
     //name it whatever you want.
-    public void createPlayerBoard() {
+    public String[] createPlayerBoard() {
         //This line creates a new array with 100 elements.
-        char[] playerBoardArray = new char[100];
+        String[] playerBoardArray = new String[100];
         
         //This loop puts a dash (-) as the value for each element of the array.
         for(int i = 0; i < playerBoardArray.length; i++) {
             //The line below means "Go to the element in playerBoardArray at
             //index number (whatever is in i) and set the value as a dash.
-            playerBoardArray[i] = '-';
+            playerBoardArray[i] = "-";
         }
         
-        //This loop creates the board by displaying it.
-        for(int i = 0; i < playerBoardArray.length; i++) {
-            System.out.print(playerBoardArray[i] + "\t");
-            //This if statement creates a new line after each row has 10 spaces.
-            if((i + 1) % 10 == 0)
-                System.out.print("\n");  
-        }
+        return playerBoardArray;
     }
     
     public void createHitMissBoard() {
