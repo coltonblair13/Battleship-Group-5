@@ -8,7 +8,7 @@ package battleship;
 
 /**
  *
- * @author BE$T
+ * @author Ethan Stewart
  */
 public class Board {
     int rowCount = 10;
@@ -96,7 +96,7 @@ public class Board {
 
     }
 
-    public static void initShips(int[][] ships){
+    /*public static void initShips(int[][] ships){
         Random random = new Random();
         
         for(int ship=0 ; ship < 3 ; ship++){
@@ -114,7 +114,7 @@ public class Board {
             }
             
         }
-    }​
+    }*/
 
     
     
