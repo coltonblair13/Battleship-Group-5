@@ -99,7 +99,7 @@ public class Board {
     /*public static void initShips(int[][] ships){
         Random random = new Random();
         
-        for(int ship=0 ; ship < 3 ; ship++){
+        for(int ship=0 ; ship < 5 ; ship++){
             ships[ship][0]=random.nextInt(5);
             ships[ship][1]=random.nextInt(5);
             
