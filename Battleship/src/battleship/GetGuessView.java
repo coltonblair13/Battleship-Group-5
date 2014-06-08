@@ -90,7 +90,17 @@ public class GetGuessView {
                         "Please enter a valid location, "
                         + "or a \"Q\" to quit. Try again.");
             
+            Player usedGuessesObject = new Player();
+            String[] usedGuesses = usedGuessesObject.usedGuesses;
+            
+            
             //Check against array for occupied or not, set variable to true or false
+            boolean boolUsedGuess = this.checkUsedGuesses(strRowColumn, usedGuesses);
+            if(boolUsedGuess == true) {
+                System.out.println("You already guessed this location! Guess again.");
+                break;
+            }
+            
             boolean boolHitMiss = false;
             for (int i = 0; i < occupiedSpotsList.length; i++)
             {
@@ -108,6 +118,16 @@ public class GetGuessView {
             else
                 System.out.println("Miss!");
             
+            for(int i = 0; i < usedGuesses.length; i++) {
+                boolean finished = false;
+                if("\0".equals(usedGuesses[i])) {
+                    usedGuesses[i] = strRowColumn;
+                    finished = true;
+                }
+                if(finished)
+                    break;     
+            }
+            
             // create a Point object to store the row and column coordinates in
             /*location = new Point(row-1, column-1);
             
@@ -124,5 +144,17 @@ public class GetGuessView {
         
         //return location; 
             
+    }
+    
+    public boolean checkUsedGuesses(String guess, String[] usedGuesses) {
+        boolean found = false;
+	for(String x : usedGuesses) {
+            if(x.equals(guess))
+               found = true;
+            
+            if(found == true)
+                break;
+        }	
+	return found; 
     }
 }

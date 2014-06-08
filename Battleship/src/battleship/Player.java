@@ -52,6 +52,15 @@ public class Player {
         System.out.println("The default player is " + this.name1);
     }
     
+    String[] usedGuesses = this.createUsedGuesses();
+    
+    public String[] createUsedGuesses() {
+        String[] usedGuesses = new String[25];
+        for(int i = 0; i < usedGuesses.length; i++)
+            usedGuesses[i] = "\0";
+        return usedGuesses;
+    }
+    
     public String setLoser() {
         //This will contain code to set who the loser is.
         String loser = "Person";

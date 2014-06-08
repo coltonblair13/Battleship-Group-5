@@ -46,15 +46,16 @@ public class Battleship {
         /*Location displaySpots = new Location();
          displaySpots.displayListOfSpots();
         
-         displaySpots.displayOccupiedSpots();
+         displaySpots.displayOccupiedSpots();*/
          GetGuessView testGuessObject = new GetGuessView();
-         testGuessObject.getGuess();*/
+         for(int i = 0; i < 2; i++)
+             testGuessObject.getGuess();
         
-        Player testNameSort = new Player();
+        /*Player testNameSort = new Player();
         String[] playerList = testNameSort.getName();
         GameMenuControl sortFunction = new GameMenuControl();
         playerList = sortFunction.sortPlayerList(playerList);
-        sortFunction.displayPlayerList(playerList);        
+        sortFunction.displayPlayerList(playerList);*/        
     }
 
     public void displayHelp() {
