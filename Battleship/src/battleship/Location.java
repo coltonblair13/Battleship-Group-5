@@ -481,3 +481,45 @@ public class Location {
             System.out.println(occupiedSpotsList[i]);
         }
     }
+
+    /*This is a code that I was able to get from stackoverflow.  I made a few adjustments 
+    but am not sure if it will do the job.  This code should help us to randomly place ships 
+    on the computer side. Author - Adam Kelley*/ 
+    public void placeAllShips() {
+        int dir = 0;
+        int xCoord = 0;
+        int yCoord = 0;
+        boolean flag;
+        boolean overlap;
+        for (int i=0; i<10; i++) {
+            flag = true;
+            overlap = false;
+        while (flag) {
+            xCoord = (int)(Math.random()*(10)); 
+            yCoord = (int)(Math.random()*(10)); 
+            dir = (int)(Math.random()*(2)); //get a random direction, 0 = horizontal, 1 = vertical
+            if ((place[xCoord][yCoord].hasShip()==false)&&(((dir==0)&&((xCoord+i)<=9))||((dir==1)&&((yCoord+i)<=9)))) {
+                for (int j=0; j<i+1; j++) {
+                    if ((dir==0)&&(place[xCoord+j][yCoord].hasShip())) {
+                        overlap = false;
+                }
+            else if ((dir==1)&&(place[xCoord][yCoord+j].hasShip())) {
+              overlap = true;
+            }
+          }
+          if (overlap==false) {
+            flag = false;
+          }
+        }
+      }
+      System.out.println(xCoord+":"+yCoord+":"+dir);
+      for (int k=0; k<i+1; k++) {
+        if (dir==0) {
+          placment[xCoord+k][yCoord].setHasShip(true);
+        }
+        else {
+          placment[xCoord][yCoord+k].setHasShip(true);
+        }
+      }
+    }
+  }
