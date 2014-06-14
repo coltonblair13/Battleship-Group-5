@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package battleship;
 
 import java.util.Scanner;
@@ -14,7 +8,7 @@ import java.util.Scanner;
  */
 public class MainMenuView {
      
-    private static final String[][] menuItems = {
+    public static final String[][] menuItems = {
         {"1", "One player game"},
         {"2", "Two player game"},
         {"H", "Help"},

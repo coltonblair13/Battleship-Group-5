@@ -1,94 +1,72 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package battleship;
+
+import java.util.Scanner;
 
 /**
  *
  * @author Ethan Stewart
  */
 public class GameChoicesControl {
-    public void makeNewGuess() {
-        GetGuessView getGuessView = new GetGuessView();
-        
-        getGuessView.getGuess();
+
+    public void displayOwnBoard(int currentPlayerNumber, String[][]playerOnePersonalBoard, String[][] playerTwoPersonalBoard) {
+        String[][] ownBoard;
+        if (currentPlayerNumber == 1) {
+            ownBoard = playerOnePersonalBoard;
+        } else {
+            ownBoard = playerTwoPersonalBoard;
+        }
+
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                System.out.print(ownBoard[i][j] + "\t");
+            }
+            System.out.print("\n");
+        }
+
     }
-    
-    
-    
-    /*
-    Author: Ethan
-    This function, to be called from GameChoicesView, fills the array with
-    the default board for yourself. In the future, it will be displaying from
-    an array that is updated with each guess.
-    */
-    public void displayOwnBoard() {
-        //Create instance of Board class to access necessary function.
-        Board ownBoard = new Board();
-        
-        //Create the array containing what should be displayed
-        //for each location.
-        String[] playerBoardArray = ownBoard.createPlayerBoard();
-        
-        //Loop through the array and display the value within each index.
-        for(int i = 0; i < playerBoardArray.length; i++) {
-            System.out.print(playerBoardArray[i] + "\t");
-            //This if statement creates a new line after each row has 10 spaces.
-            if((i + 1) % 10 == 0)
-                System.out.print("\n");  
+
+    public void displayOpponentBoard(int currentPlayerNumber, String[][] playerOneHitMissBoard, String[][] playerTwoHitMissBoard) {
+        String[][] opponentBoard;
+        if (currentPlayerNumber == 1) {
+            opponentBoard = playerOneHitMissBoard;
+        } else {
+            opponentBoard = playerTwoHitMissBoard;
+        }
+
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                System.out.print(opponentBoard[i][j] + "\t");
+            }
+            System.out.print("\n");
         }
     }
-    
-    
-	
 
-            
-    public void displayRealPlayerHelp() {
-        System.out.println();
-        displayHelpBorder();     
-        System.out.println( 
-                "\tA real player manually takes their turn by guessing "
-                + "\n\ta location on the board."); 
-        displayHelpBorder();
+    public void startNewGame() {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Are you sure you want to start a new game? (y/n)");
+        String userInput = input.next();
+        do {
+            switch (userInput) {
+                case "y":
+                    new MainMenuControl().startGame(2);
+                    break;
+                case "n":
+                    break;
+                default:
+                    System.out.println("Invalid input. Enter a \"y\" for yes, or "
+                            + "a \"n\" for no.");
+                    break;
+            }
+        } while (!"y".equals(userInput) && !"n".equals(userInput));
     }
-    
-                   
-    public void displayComputerPlayerHelp() {
-        System.out.println();
-        displayHelpBorder();     
-        System.out.println( 
-                "\tA computer based player automatically guesses a square "
-                + "\n\timmediately after a real player in a single player game."
-                ); 
-        displayHelpBorder();
+
+    public void calcStatistics() {
+        System.out.println("The function to calculate your statistics is under construction."
+                + "Please choose a different option.");
     }
-             
-    public void displayShipHelp() {
-        System.out.println();
-        displayHelpBorder();     
-        System.out.println( 
-               "\tEach player starts with five ships. One is five squares long, "
-               + "\n\tone is four, two are three, and one is two. Each guess "
-               + "\n\tcontaining part of a ship is a hit; when all sections of a ship "
-               + "\n\thave been hit, the ship is sunk."); 
-        displayHelpBorder();
+
+    public void goToHelp() {
+        new HelpMenuView().getInput();
     }
-                 
-    public void displayHitsMissesHelp() {
-        System.out.println();
-        displayHelpBorder();
-        System.out.println(
-                "\tIf the square you guess contains part of an opponent's ship, "
-                + "\n\tthen it will dispay an X. If you miss it will display an O.");
-        displayHelpBorder();
-    }
-    
-    
-    public void displayHelpBorder() {       
-        System.out.println(
-        "\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-    }
+
 }

@@ -148,7 +148,9 @@ public class Game {
                     + "\n% Games Lost:\t" + gamesLostPlayer2);
         
     }
-    // Author: Adam 
+    
+
+// Author: Adam 
     //This function is to record the loser in the game.
      /*public void recordLoser() {
         if (this.currentPlayer == this.player1) {

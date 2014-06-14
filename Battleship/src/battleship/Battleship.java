@@ -14,48 +14,7 @@ public class Battleship {
             + "contains part of a ship, it's a hit; otherwise, it's a miss.";
 
     public static void main(String[] args) {
-        /*Battleship myGame = new Battleship();
-         myGame.getName();
-         myGame.displayHelp();
-         Board boardSize = new Board();
-         boardSize.displaySize();
-        
-         Game game = new Game();
-         game.displayWinningMessage();
-        
-         Player player1 = new Player();
-         player1.displayName();
-        
-         Game showStats = new Game();
-         showStats.endOfGameStats();
-        
-         Location displaySpots = new Location();
-         displaySpots.makeListOfSpots();
-
-        Board testBoard = new Board();
-        testBoard.createHitMissBoard();
-
-        /*Board testBoard2 = new Board();
-         testBoard2.createPlayerBoard();
-
-         HelpMenuView testHelp = new HelpMenuView();
-         testHelp.getInput();
-        
-         MainMenuView testMain = new MainMenuView();
-         testMain.getInput();*/
-        /*Location displaySpots = new Location();
-         displaySpots.displayListOfSpots();
-        
-         displaySpots.displayOccupiedSpots();*/
-         GetGuessView testGuessObject = new GetGuessView();
-         for(int i = 0; i < 2; i++)
-             testGuessObject.getGuess();
-        
-        /*Player testNameSort = new Player();
-        String[] playerList = testNameSort.getName();
-        GameMenuControl sortFunction = new GameMenuControl();
-        playerList = sortFunction.sortPlayerList(playerList);
-        sortFunction.displayPlayerList(playerList);*/        
+        new MainMenuView().getInput();
     }
 
     public void displayHelp() {

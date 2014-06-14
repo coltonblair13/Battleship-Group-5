@@ -8,153 +8,204 @@ import java.util.Scanner;
  * @author Ethan Stewart
  */
 public class GetGuessView {
-    
-    public void getGuess() {
 
-        Scanner inFile = new Scanner(System.in); // get input file      
-        String[] coordinates;
-        Point location = null;
+    public int getGuess(String[][] playerOnePersonalBoard, String[][] playerOneHitMissBoard, 
+                         String[][] playerTwoPersonalBoard, String[][] playerTwoHitMissBoard, 
+                         int currentPlayer) {
+        int playerNumber;
+        switch (currentPlayer) {
+            case 1:
+                playerNumber = this.getPlayerOneGuess(playerOneHitMissBoard, playerTwoPersonalBoard);
+                break;
+            case 2:
+                playerNumber = this.getPlayerTwoGuess(playerTwoHitMissBoard, playerOnePersonalBoard);
+                break;
+            default:
+                playerNumber = 1;
+                System.out.println("Invalid number inside currentPlayerNumber variable"
+                    + "in the Player class.");
+        }
+        return playerNumber;
+    }
+    
+    public int getPlayerOneGuess(String[][] playerOneHitMissBoard, 
+                         String[][] playerTwoPersonalBoard) {
+        Scanner input = new Scanner(System.in);     
+        Location locationObject = new Location();
+        Player playerObject = new Player();
+        GameChoicesView gameChoicesViewObject = new GameChoicesView();
+        MainMenuControl mnMenuCtrlObj = new MainMenuControl();
+        int playerNumber = 2;
         
+        String playerName;
+        if (gameChoicesViewObject.playerNumber == 1)
+            playerName = mnMenuCtrlObj.player1;
+        else
+            playerName = mnMenuCtrlObj.player2;
+
         boolean valid = false;
-        
-        Location occupiedSpots = new Location();
-        String[] occupiedSpotsList = occupiedSpots.createListOccupiedSpots(5);
-        
 
         while (!valid) {
-            // prompt for the row and column numbers
-            System.out.println("\n\n\t" + "this.game.currentPlayer.name" + " it is your turn."
-                + " Enter a row letter and column number (For example: G3)");
-            
-            // get the value entered by the user 
-            String strRowColumn = inFile.nextLine(); 
-            
-            // trim off all extra blanks from the input
-            strRowColumn = strRowColumn.trim();  
-            
-            // replace any commas enter with blanks
-            strRowColumn = strRowColumn.replace(',', ' '); 
-            
-            // tokenize the string into an array of words
-            coordinates = strRowColumn.split("\\s");
-            
-            //Converts row letter to uppercase if necessary
-            coordinates[0] = coordinates[0].toUpperCase();
+            //Prompt for location on board to be "shot" at.
+            System.out.println("\n\n\t" + playerName + ", it is your turn to guess."
+                    + " Enter a row letter and column number (For example: D3)");
 
-            //Following commented out for time being.
-            /*if (coordinates.length < 1) { // the value entered was not blank?
-                new BattleshipError().displayError(
-                        "You must enter two numbers, a row and the column, "
-                        + "or a \"Q\" to quit. Try again.");
-                continue;
-            }    
+            //Get the value entered by the user 
+            String strRowColumn = input.nextLine();
 
-            else if (coordinates.length == 1) { // only one coordinate entered?
-                if (coordinates[0].toUpperCase().equals("Q")) { // Quit?
-                    return null;
-                } else { // wrong number of values entered.
-                    new BattleshipError().displayError(
-                        "You must enter two numbers, a row and the column, "
-                        + "or a \"Q\" to quit. Try again.");
-                    continue;
-                }
-            }
-
-
+            //Trim off all extra blanks from the input
+            strRowColumn = strRowColumn.trim();
             
-            // convert each of the cordinates from a String type to 
-            // an integer type
-            int row = Integer.parseInt(coordinates[0]);
-            int column = Integer.parseInt(coordinates[1]);
-                     
-            Board board = this.game.board; // get the game board*/
+            /*Add error message if guess doesn't contain enough characters?*/
             
-            //Check against array for valid location-ness
-            Location validCheckObject = new Location();
-            String[][] listOfSpots = validCheckObject.makeStringListOfSpots();
+            int iLocation = 0;
+            int jLocation = 0;
+
+            String[][] listOfSpots = locationObject.makeStringListOfSpots();
+
             boolean checkValidLocal = false;
-            for (int i = 0; i < 10; i++)
-            {
-                for (int j = 0; j < 10; j++)
-                {
-                    if (strRowColumn.equals(listOfSpots[i][j]))
-                    {
-                    checkValidLocal = true;
-                    break;
+            for (iLocation = 0; iLocation < 5; iLocation++) {
+                for (jLocation = 0; jLocation < 5; jLocation++) {
+                    if (strRowColumn.equals(listOfSpots[iLocation][jLocation])) {
+                        checkValidLocal = true;
+                        break;
                     }
                 }
-                
+                if (checkValidLocal)
+                    break;
+
             }
-            if (checkValidLocal == false)
+            if (checkValidLocal == false) {
                 new BattleshipError().displayError(
                         "Please enter a valid location, "
                         + "or a \"Q\" to quit. Try again.");
-            
-            Player usedGuessesObject = new Player();
-            String[] usedGuesses = usedGuessesObject.usedGuesses;
-            
-            
-            //Check against array for occupied or not, set variable to true or false
-            boolean boolUsedGuess = this.checkUsedGuesses(strRowColumn, usedGuesses);
-            if(boolUsedGuess == true) {
-                System.out.println("You already guessed this location! Guess again.");
-                break;
             }
+
+            //See if the location is occupied by the opponent's ship.
             
             boolean boolHitMiss = false;
-            for (int i = 0; i < occupiedSpotsList.length; i++)
-            {
-                if (strRowColumn.equals(occupiedSpotsList[i]))
-                {
-                    boolHitMiss = true;
-                    break;
-                }
+            if ("S".equals(playerTwoPersonalBoard[iLocation][jLocation])) {
+                boolHitMiss = true;
             }
-            
-            //If true, display hit message
-            if (boolHitMiss == true)
-                System.out.println("Hit!");
-            //If false, display miss message
-            else
-                System.out.println("Miss!");
-            
-            for(int i = 0; i < usedGuesses.length; i++) {
-                boolean finished = false;
-                if("\0".equals(usedGuesses[i])) {
-                    usedGuesses[i] = strRowColumn;
-                    finished = true;
-                }
-                if(finished)
-                    break;     
-            }
-            
-            // create a Point object to store the row and column coordinates in
-            /*location = new Point(row-1, column-1);
-            
-            // check to see if the location entered is already occupied
-            if ( board.boardLocations[row-1][column-1].player != null ) {
-                new BattleshipError().displayError(
-                    "The current location is taken. Select another location");
-                continue;
-            }*/
 
+            //If true, display hit message
+            if (boolHitMiss) {
+                System.out.println("Hit!");
+                playerTwoPersonalBoard[iLocation][jLocation] = "X";
+                playerOneHitMissBoard[iLocation][jLocation] = "X";
+            } //If false, display miss message
+            else {
+                System.out.println("Miss!");
+                playerOneHitMissBoard[iLocation][jLocation] = "O";
+            }
+            System.out.println("Your hit/miss board has been updated.");
+            for (int i = 0; i < 5; i++) {
+                for (int j = 0; j < 5; j ++)
+                    System.out.print(playerOneHitMissBoard[i][j] + "\t");
+                System.out.print("\n\n");
+            }
+            
             valid = true; // a valid location was entered
 
         }
-        
-        //return location; 
-            
+        return playerNumber;
+
     }
     
+    public int getPlayerTwoGuess(String[][] playerTwoHitMissBoard, 
+                         String[][] playerOnePersonalBoard)  {
+        Scanner input = new Scanner(System.in);     
+        Location locationObject = new Location();
+        Player playerObject = new Player();
+        GameChoicesView gameChoicesViewObject = new GameChoicesView();
+        MainMenuControl mnMenuCtrlObj = new MainMenuControl();
+        int playerNumber = 1;
+        
+        String playerName;
+        if (gameChoicesViewObject.playerNumber == 1)
+            playerName = mnMenuCtrlObj.player1;
+        else
+            playerName = mnMenuCtrlObj.player2;
+
+        boolean valid = false;
+
+        while (!valid) {
+            //Prompt for location on board to be "shot" at.
+            System.out.println("\n\n\t" + playerName + ", it is your turn to guess."
+                    + " Enter a row letter and column number (For example: D3)");
+
+            //Get the value entered by the user 
+            String strRowColumn = input.nextLine();
+
+            //Trim off all extra blanks from the input
+            strRowColumn = strRowColumn.trim();
+            
+            /*Add error message if guess doesn't contain enough characters?*/
+            
+            int iLocation = 0;
+            int jLocation = 0;
+
+            String[][] listOfSpots = locationObject.makeStringListOfSpots();
+
+            boolean checkValidLocal = false;
+            for (iLocation = 0; iLocation < 5; iLocation++) {
+                for (jLocation = 0; jLocation < 5; jLocation++) {
+                    if (strRowColumn.equals(listOfSpots[iLocation][jLocation])) {
+                        checkValidLocal = true;
+                        break;
+                    }
+                }
+                if (checkValidLocal)
+                    break;
+
+            }
+            if (checkValidLocal == false) {
+                new BattleshipError().displayError(
+                        "Please enter a valid location, "
+                        + "or a \"Q\" to quit. Try again.");
+            }
+
+            //See if the location is occupied by the opponent's ship.
+            
+            boolean boolHitMiss = false;
+            if ("S".equals(playerOnePersonalBoard[iLocation][jLocation])) {
+                boolHitMiss = true;
+            }
+
+            //If true, display hit message
+            if (boolHitMiss) {
+                System.out.println("Hit!");
+                playerOnePersonalBoard[iLocation][jLocation] = "X";
+                playerTwoHitMissBoard[iLocation][jLocation] = "X";
+            } //If false, display miss message
+            else {
+                System.out.println("Miss!");
+                playerTwoHitMissBoard[iLocation][jLocation] = "O";
+            }
+            System.out.println("Your hit/miss board has been updated.");
+            for (int i = 0; i < 5; i++) {
+                for (int j = 0; j < 5; j ++)
+                    System.out.print(playerTwoHitMissBoard[i][j] + "\t");
+                System.out.print("\n\n");
+            }
+            
+            valid = true; // a valid location was entered
+
+        }
+        return playerNumber;
+    }
+
     public boolean checkUsedGuesses(String guess, String[] usedGuesses) {
         boolean found = false;
-	for(String x : usedGuesses) {
-            if(x.equals(guess))
-               found = true;
-            
-            if(found == true)
+        for (String x : usedGuesses) {
+            if (x.equals(guess)) {
+                found = true;
+            }
+
+            if (found == true) {
                 break;
-        }	
-	return found; 
+            }
+        }
+        return found;
     }
 }

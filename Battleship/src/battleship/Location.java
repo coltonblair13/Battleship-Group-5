@@ -39,14 +39,12 @@ public class Location {
     //Adding a comment to test my commit.
     
     public String[][] makeStringListOfSpots() {
-        String[][] listOfSpots = new String[10][10];
-        String[] locationRow = { "A", "B", "C", "D", "E",
-            "F", "G", "H", "I", "J" };
-        String[] locationColumn = { "1", "2", "3", "4", "5",
-            "6", "7", "8", "9", "10" };
-        for (int row = 0; row < 10; row++)
+        String[][] listOfSpots = new String[5][5];
+        String[] locationRow = { "A", "B", "C", "D", "E"};
+        String[] locationColumn = { "1", "2", "3", "4", "5"};
+        for (int row = 0; row < 5; row++)
         {
-            for (int col = 0; col < 10; col++)
+            for (int col = 0; col < 5; col++)
             {
                 listOfSpots[row][col] = locationRow[row] + locationColumn[col];
             }
@@ -59,11 +57,11 @@ public class Location {
         Location listOfSpotsObject = new Location();
         String[][] listOfSpots = listOfSpotsObject.makeStringListOfSpots();
         
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 5; i++)
         {
-            for (int j = 0; j < 10; j++)
+            for (int j = 0; j < 5; j++)
             {
-                System.out.println(listOfSpots[i][j]);
+                System.out.print(listOfSpots[i][j] + "\t");
             }
             System.out.println("\n");
         }
