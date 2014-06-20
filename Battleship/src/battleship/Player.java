@@ -53,7 +53,7 @@ public class Player {
      * @return
      */
     
-    public String changePlayerOneName() {
+    private String changePlayerOneName() {
         Scanner input = new Scanner(System.in);
         System.out.println("Please enter a name for Player 1");
         String name = input.next();
@@ -61,7 +61,7 @@ public class Player {
         return name;
     }
     
-    public String changePlayerTwoName() {
+    private String changePlayerTwoName() {
         Scanner input = new Scanner(System.in);
         System.out.println("Please enter a name for Player 2");
         String name = input.next();
@@ -187,13 +187,13 @@ public class Player {
         System.out.println("The default player is " + this.name1);
     }
 
-    public String setLoser() {
+    private String setLoser() {
         //This will contain code to set who the loser is.
         String loser = "Person";
         return loser;
     }
 
-    public String setWinner() {
+    private String setWinner() {
         //This will contain code to set who the winner is.
         String winner = "Other Person";
         return winner;
