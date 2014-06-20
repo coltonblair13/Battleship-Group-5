@@ -28,7 +28,15 @@ public class Player {
     int hitsLeft = 17;
 
     int currentPlayerNumber = 1;
+//this sets the nested class inside the player class, by chelsea
 
+private class location{ 
+public String[][] setPlayerOneShips(String playerName) {
+        Scanner input = new Scanner(System.in);
+        int iLocation = 0;
+        int jLocation = 0;
+        } 
+    
     public String[] getName() {
         String[] name = new String[10];
         for (int x = 0; x < name.length; x++) {
@@ -101,6 +109,8 @@ public class Player {
                         iLocation = i;
                         jLocation = j;
                         break;
+                        
+                        
                     }
                 }
             }
