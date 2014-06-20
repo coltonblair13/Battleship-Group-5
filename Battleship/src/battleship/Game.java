@@ -38,13 +38,7 @@ public class Game {
             +"Row must be a letter from A to J.\n"
             + "Column must be a number from 1 to 10.\n"
             + "Don't type any spaces between the row and column.";
-    /*public Game(){
-        this.playerA = new Player();
-        this.playerA.name = "Nephi";
-        this.playerB = new Player();
-        this.playerB.name = "Moriancumer";
-        
-    }*/
+    int currentPlayerNumber = 1;
     
     public void displayWinningMessage(){
         System.out.println(this.winningMessage);
