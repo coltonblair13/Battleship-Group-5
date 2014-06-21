@@ -8,16 +8,11 @@ package battleship;
 
 /**
  *
- * @author Ethan Stewart
+ * @author Colton Blair
  */
 
 /*
-Colton-
-I think you said you'd take this class for the individual assignment, just wanted 
-to let you know that I made some changes here. Go ahead and check the five steps 
-but the createBoard method should be good (I figured since I had to work on it 
-for my part, I'd just make sure it fit the criteria anyways).
--Ethan
+Thanks Ethan! 
 */
 public class Board {
     int rowCount = 5;
