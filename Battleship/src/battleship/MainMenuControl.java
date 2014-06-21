@@ -5,11 +5,22 @@
  */
 package battleship;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Ethan Stewart
  */
-public class MainMenuControl {
+
+/*
+ Adam-
+ I remember you said you'd take this as one of your classes for the individual assignment.
+ Just FYI, I did change a few things in the create function. Go ahead and go through 
+ the rest of the class with the steps, but since I already had to do a couple things 
+ for my classes with that function, it should be good with those steps already.
+ -Ethan
+ */
+public class MainMenuControl implements Serializable {
 
     public void startGame(long noPlayers) {
         /*
@@ -32,30 +43,26 @@ public class MainMenuControl {
 
     public Game create(String gameType) {
 
-        Player player1 = new Player();
-        Player player2 = new Player();
-        
         if ("TWO_PLAYER".equals(gameType)) {
+            Player player1 = new Player();
+            Player player2 = new Player();
             GameChoicesView gameChoicesViewObject = new GameChoicesView();
             Board boardObject = new Board();
             int currentPlayer;
 
-            /*String[][] playerOnePersonalBoard = playerObject.setPlayerOneShips(player1);
-             String[][] playerTwoPersonalBoard = playerObject.setPlayerTwoShips(player2);
+            /*
+             String[][] playerOnePersonalBoard = player1.setPlayerShips(player1);
+             String[][] playerTwoPersonalBoard = player2.setPlayerShips(player2);
              String[][] playerOneHitMissBoard = boardObject.createHitMissBoard();
              String[][] playerTwoHitMissBoard = boardObject.createHitMissBoard();*/
-            String[][] playerOnePersonalBoard = player1.setPlayerOneShips(player1);
-            String[][] playerTwoPersonalBoard = player2.setPlayerTwoShips(player2);
-            String[][] playerOneHitMissBoard = boardObject.createHitMissBoard();
-            String[][] playerTwoHitMissBoard = boardObject.createHitMissBoard();
+            Player playerToPass;
             for (int i = 0; i < 12; i++) {
                 if (gameChoicesViewObject.playerNumber == 1) {
-                    currentPlayer = 1;
+                    playerToPass = player1;
                 } else {
-                    currentPlayer = 2;
+                    playerToPass = player2;
                 }
-                String command = gameChoicesViewObject.getInput(playerOnePersonalBoard, playerOneHitMissBoard,
-                        playerTwoPersonalBoard, playerTwoHitMissBoard, currentPlayer);
+                String command = gameChoicesViewObject.getInput(playerToPass);
                 if ("Q".equals(command)) {
                     break;
                 }

@@ -28,9 +28,7 @@ public class GameChoicesView {
     } 
     
     // Display the help menu and get the end users input selection
-    public String getInput(String[][] playerOnePersonalBoard, String[][] playerOneHitMissBoard, 
-                         String[][] playerTwoPersonalBoard, String[][] playerTwoHitMissBoard, 
-                         int currentPlayer) {       
+    public String getInput(Player player) {       
               
         //Declare variable for user to enter an option.
         String command;
@@ -41,7 +39,7 @@ public class GameChoicesView {
         
         do {
             
-            System.out.println("Player " + currentPlayer + "'s turn");
+            System.out.println(player.name + "'s turn");
             this.display(); // Display the menu
             
             // Get the user's choice and make it uppercase
@@ -52,14 +50,13 @@ public class GameChoicesView {
             //to call an actual function from the GameChoicesControl class.
             switch (command) {
                 case "G":
-                    playerNumber = getGuessViewObject.getGuess(playerOnePersonalBoard, playerOneHitMissBoard, 
-                            playerTwoPersonalBoard, playerTwoHitMissBoard, currentPlayer);
+                    playerNumber = getGuessViewObject.getGuess(player);
                     break;
                 case "P":
-                    this.gameChoicesControl.displayOwnBoard(currentPlayer, playerOnePersonalBoard, playerTwoPersonalBoard);
+                    this.gameChoicesControl.displayOwnBoard(player);
                     break;
                 case "O":
-                    this.gameChoicesControl.displayOpponentBoard(currentPlayer, playerOneHitMissBoard, playerTwoHitMissBoard);
+                    this.gameChoicesControl.displayOpponentBoard(player);
                     break;                  
                 case "N":
                     this.gameChoicesControl.startNewGame();

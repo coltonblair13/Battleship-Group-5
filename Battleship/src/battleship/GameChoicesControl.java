@@ -8,34 +8,20 @@ import java.util.Scanner;
  */
 public class GameChoicesControl {
 
-    public void displayOwnBoard(int currentPlayerNumber, String[][]playerOnePersonalBoard, String[][] playerTwoPersonalBoard) {
-        String[][] ownBoard;
-        if (currentPlayerNumber == 1) {
-            ownBoard = playerOnePersonalBoard;
-        } else {
-            ownBoard = playerTwoPersonalBoard;
-        }
-
+    public void displayOwnBoard(Player player) {
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 5; j++) {
-                System.out.print(ownBoard[i][j] + "\t");
+                System.out.print(player.personalBoard[i][j] + "\t");
             }
             System.out.print("\n");
         }
 
     }
 
-    public void displayOpponentBoard(int currentPlayerNumber, String[][] playerOneHitMissBoard, String[][] playerTwoHitMissBoard) {
-        String[][] opponentBoard;
-        if (currentPlayerNumber == 1) {
-            opponentBoard = playerOneHitMissBoard;
-        } else {
-            opponentBoard = playerTwoHitMissBoard;
-        }
-
+    public void displayOpponentBoard(Player player) {
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 5; j++) {
-                System.out.print(opponentBoard[i][j] + "\t");
+                System.out.print(player.hitMissBoard[i][j] + "\t");
             }
             System.out.print("\n");
         }

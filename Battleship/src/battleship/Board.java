@@ -10,13 +10,23 @@ package battleship;
  *
  * @author Ethan Stewart
  */
+
+/*
+Colton-
+I think you said you'd take this class for the individual assignment, just wanted 
+to let you know that I made some changes here. Go ahead and check the five steps 
+but the createBoard method should be good (I figured since I had to work on it 
+for my part, I'd just make sure it fit the criteria anyways).
+-Ethan
+*/
 public class Board {
     int rowCount = 5;
     int columnCount = 5;
-    String[][] playerOnePersonalBoard = this.createPlayerBoard();
-    String[][] playerOneHitMissBoard = this.createHitMissBoard();
-    String[][] playerTwoPersonalBoard = this.createPlayerBoard();
-    String[][] playerTwoHitMissBoard = this.createHitMissBoard();
+    String[][] playerOnePersonalBoard = this.createBoard();
+    String[][] playerOneHitMissBoard = this.createBoard();
+    String[][] playerTwoPersonalBoard = this.createBoard();
+    String[][] playerTwoHitMissBoard = this.createBoard();
+    public String[][] defaultBoard = this.createBoard();
     
  
     
@@ -24,32 +34,22 @@ public class Board {
         System.out.println("\nThe Battleship board contains " + this.rowCount + " rows and " + this.columnCount + " columns.\n");
     }
     
-    public String[][] createPlayerBoard() {
+    /**
+     *
+     * @return
+     */
+    public static String[][] createBoard() {
         //This line creates a new 5X5 multi-dimensional array.
-        String[][] playerBoardArray = new String[5][5];
+        String[][] defaultBoard = new String[5][5];
         
         //This loop puts a tilde (~) as the value for each element of the array.
         for(int i = 0; i < 5; i++) {
             for (int j = 0; j < 5; j++) {
-                playerBoardArray[i][j] = "~";
+                defaultBoard[i][j] = "~";
             }
         }
         
-        return playerBoardArray;
-    }
-    
-    public String[][] createHitMissBoard() {
-        //This line creates a new 5X5 multi-dimensional array.
-        String[][] hitMissArray = new String[5][5];
-        
-        //This loop puts a tilde (~) as the value for each element of the array.
-        for(int i = 0; i < 5; i++) {
-            for (int j = 0; j < 5; j++) {
-                hitMissArray[i][j] = "~";
-            }
-        }
-        
-        return hitMissArray;
+        return defaultBoard;
     }
     
     
