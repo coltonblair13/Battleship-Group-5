@@ -36,9 +36,10 @@ public class Location {
 
     }*/
     
-    //Adding a comment to test my commit.
+    // public static String[][] makeStringListOfSpots() {
+    //Chelsea here placing the static function, I am just not sure yet how to call it later without messing the game up...
     
-    public String[][] makeStringListOfSpots() {
+    public static String[][] makeStringListOfSpots() {
         String[][] listOfSpots = new String[5][5];
         String[] locationRow = { "A", "B", "C", "D", "E"};
         String[] locationColumn = { "1", "2", "3", "4", "5"};
