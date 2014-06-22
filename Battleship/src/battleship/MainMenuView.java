@@ -25,7 +25,7 @@ public class MainMenuView {
     public void getInput() {       
 
         String command;
-        Scanner inFile = new Scanner(System.in);
+        Scanner inFile = Battleship.getInputFile();
         
         do {
             this.display(); // display the menu
