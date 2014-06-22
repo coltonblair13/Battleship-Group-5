@@ -12,14 +12,7 @@ import java.io.Serializable;
  * @author Ethan Stewart
  */
 
-/*
- Adam-
- I remember you said you'd take this as one of your classes for the individual assignment.
- Just FYI, I did change a few things in the create function. Go ahead and go through 
- the rest of the class with the steps, but since I already had to do a couple things 
- for my classes with that function, it should be good with those steps already.
- -Ethan
- */
+
 public class MainMenuControl implements Serializable {
 
     public void startGame(long noPlayers) {
