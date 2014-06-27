@@ -6,7 +6,7 @@ import java.util.Scanner;
  *
  * @author Ethan Stewart
  */
-public class GameChoicesView {
+public class GameChoicesView extends Menu {
     private final static String[][] menuItems = {
         {"G", "Make your guess"},
         {"P", "Display your board"}, 
@@ -24,27 +24,18 @@ public class GameChoicesView {
     
     // Default constructor
     public GameChoicesView() {
-        
+        setMenuItems(menuItems);
     } 
     
     // Display the help menu and get the end users input selection
-    public String getInput(Player player) {       
-              
-        //Declare variable for user to enter an option.
+    public void getInput() {
         String command;
-        //Create object for the input.
-        Scanner inFile = new Scanner(System.in);
-        
-        
-        
-        do {
-            
-            System.out.println(player.name + "'s turn");
+        do {            
+            System.out.println("player.name" + "'s turn");
             this.display(); // Display the menu
             
             // Get the user's choice and make it uppercase
-            command = inFile.nextLine();
-            command = command.trim().toUpperCase();
+            command = getCommand();
             
             //Each option in this switch will eventually be updated
             //to call an actual function from the GameChoicesControl class.
@@ -74,18 +65,5 @@ public class GameChoicesView {
                     continue;
             }
         } while (!command.equals("Q") && !command.equals("G"));  
-        
-         return command;
-    }
-
-        // displays the help menu
-    public final void display() {
-        System.out.println("\n\t===============================================================");
-        System.out.println("\tEnter the letter associated with one of the following commands:");
-
-        for (int i = 0; i < HelpMenuView.menuItems.length; i++) {
-            System.out.println("\t   " + menuItems[i][0] + "\t" + menuItems[i][1]);
-        }
-        System.out.println("\t===============================================================\n");
     }
 }

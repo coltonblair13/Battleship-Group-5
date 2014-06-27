@@ -43,11 +43,6 @@ public class MainMenuControl implements Serializable {
             Board boardObject = new Board();
             int currentPlayer;
 
-            /*
-             String[][] playerOnePersonalBoard = player1.setPlayerShips(player1);
-             String[][] playerTwoPersonalBoard = player2.setPlayerShips(player2);
-             String[][] playerOneHitMissBoard = boardObject.createHitMissBoard();
-             String[][] playerTwoHitMissBoard = boardObject.createHitMissBoard();*/
             Player playerToPass;
             for (int i = 0; i < 12; i++) {
                 if (gameChoicesViewObject.playerNumber == 1) {

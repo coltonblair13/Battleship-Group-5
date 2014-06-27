@@ -16,7 +16,7 @@ public class Player implements Serializable {
 
     /* With the cohesion/coupling thing, we only need one of each statistic, since 
      each player will have their own object with these attributes. */
-    public String name;
+    private static String name;
     public int playerNum;
     private int playerHits;
     private int playerMisses;
@@ -24,8 +24,6 @@ public class Player implements Serializable {
     private int playerLosses;
     private int playerTotalGames;
     private int hitsLeftToWin;
-    public String[][] personalBoard;
-    public String[][] hitMissBoard;
 
     /* This is the default constructor, which sets the default value for the class instance variables. */
     Player() {
@@ -37,22 +35,30 @@ public class Player implements Serializable {
         playerLosses = 0;
         playerTotalGames = 0;
         hitsLeftToWin = 5;
-        hitMissBoard = Board.createBoard();
     }
     
+    public String[][] personalBoard = PlayerLocations.getPersonalBoard();
+    
+    /**
+     *
+     * @return
+     */
+    public String getName() {
+        return this.name;
+    }
+
     public void endOfGameStats(Player player) {
-        int playerShots = this.playerHits + this.playerMisses;
-        double playerWinPercent = (double) this.playerWins / (double) 
-                this.playerTotalGames * 100;
+        int playerShots = player.playerHits + player.playerMisses;
+        double playerWinPercent = (double) player.playerWins / (double) player.playerTotalGames * 100;
         playerWinPercent = Math.round(playerWinPercent * 10) / 10;
         double playerLosePercent = 100 - playerWinPercent;
         System.out.println("GAME OVER!");
         System.out.println("\nStats for " + this.name
-                    + "\nHits:\t\t" + this.playerHits
-                    + "\nMisses:\t\t" + this.playerMisses
-                    + "\nTotal Shots:\t" + playerShots
-                    + "\n% Games Won:\t" + playerWinPercent
-                    + "\n% Games Lost:\t" + playerLosePercent);        
+                + "\nHits:\t\t" + player.playerHits
+                + "\nMisses:\t\t" + player.playerMisses
+                + "\nTotal Shots:\t" + playerShots
+                + "\n% Games Won:\t" + playerWinPercent
+                + "\n% Games Lost:\t" + playerLosePercent);
     }
 
     private Player changePlayerName(Player player) {
@@ -61,9 +67,25 @@ public class Player implements Serializable {
         player.name = input.next();
         return player;
     }
-    
+
     /*  Nested class inside the Player class for the locations of players's ships. */
     private class PlayerLocations {
+
+        public String[][] personalBoard;
+        public String[][] hitMissBoard;
+        
+        PlayerLocations() {
+            personalBoard = setPlayerShips(Player.name);
+            hitMissBoard = Board.createBoard();
+        }
+        
+        public String[][] getPersonalBoard() {
+            return this.personalBoard;
+        }
+        
+        public String[][] getHitMissBoard() {
+            return this.hitMissBoard;
+        }
 
         private String[][] setPlayerShips(String playerName) {
             Scanner input = new Scanner(System.in);
