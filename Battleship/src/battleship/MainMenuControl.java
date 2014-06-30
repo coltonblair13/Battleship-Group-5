@@ -5,6 +5,8 @@
  */
 package battleship;
 
+import cit26001.group5.battleship.menuviews.HelpMenuView;
+import cit26001.group5.battleship.menuviews.GameChoicesView;
 import java.io.Serializable;
 
 /**

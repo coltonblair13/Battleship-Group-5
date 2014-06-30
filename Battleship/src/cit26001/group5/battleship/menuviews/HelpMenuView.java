@@ -4,15 +4,17 @@
  * and open the template in the editor.
  */
 
-package battleship;
+package cit26001.group5.battleship.menuviews;
 
+import battleship.HelpMenuControl;
+import battleship.MenuView;
 import java.util.Scanner;
 
 /**
  *
  * @author Ethan Stewart
  */
-public class HelpMenuView extends Menu {
+public class HelpMenuView extends MenuView {
     public final static String[][] menuItems = {
         {"B", "The board"},
         {"C", "A computer player"}, 

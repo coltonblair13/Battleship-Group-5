@@ -1,12 +1,15 @@
-package battleship;
+package cit26001.group5.battleship.menuviews;
 
+import battleship.GameChoicesControl;
+import battleship.GetGuessView;
+import battleship.MenuView;
 import java.util.Scanner;
 
 /**
  *
  * @author Ethan Stewart
  */
-public class GameChoicesView extends Menu {
+public class GameChoicesView extends MenuView {
     private final static String[][] menuItems = {
         {"G", "Make your guess"},
         {"P", "Display your board"}, 

@@ -7,19 +7,20 @@
 package battleship;
 
 import java.util.Scanner;
+import cit26001.group5.battleship.interfaces.*;
 
 /**
  *
  * @author Ethan Stewart
  */
-public abstract class Menu {
+public class MenuView implements DisplayInfo, EnterInfo {
     private String[][] menuItems = null;
     
-    public Menu() {
+    public MenuView() {
         
     }
     
-    public Menu(String[][] menuItems) {
+    public MenuView(String[][] menuItems) {
         this.menuItems = menuItems;
     }
     
@@ -31,7 +32,8 @@ public abstract class Menu {
         this.menuItems = menuArray;
     }
     
-    public String getCommand() {
+    @Override
+    public String getInput() {
         String command;
         Scanner input = new Scanner(System.in);
         command = input.next();

@@ -1,12 +1,14 @@
-package battleship;
+package cit26001.group5.battleship.menuviews;
 
+import battleship.MainMenuControl;
+import battleship.MenuView;
 import java.util.Scanner;
 
 /**
  *
  * @author chellybean145
  */
-public class MainMenuView extends Menu {
+public class MainMenuView extends MenuView {
 
     public final static String[][] menuItems = {
         {"1", "One player game"},

@@ -1,5 +1,6 @@
 package battleship;
 
+import cit26001.group5.battleship.menuviews.HelpMenuView;
 import java.util.Scanner;
 
 /**
