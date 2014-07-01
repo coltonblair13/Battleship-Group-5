@@ -3,8 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package battleship;
+package cit26001.group5.battleship.menucontrol;
 
+import battleship.Board;
+import battleship.Game;
+import battleship.Player;
 import cit26001.group5.battleship.menuviews.HelpMenuView;
 import cit26001.group5.battleship.menuviews.GameChoicesView;
 import java.io.Serializable;

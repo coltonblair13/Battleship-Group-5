@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package battleship;
+package cit26001.group5.battleship.menucontrol;
 
 /**
  *

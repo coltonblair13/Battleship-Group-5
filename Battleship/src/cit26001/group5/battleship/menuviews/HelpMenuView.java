@@ -6,7 +6,7 @@
 
 package cit26001.group5.battleship.menuviews;
 
-import battleship.HelpMenuControl;
+import cit26001.group5.battleship.menucontrol.HelpMenuControl;
 import java.util.Scanner;
 
 /**
