@@ -2,7 +2,6 @@ package cit26001.group5.battleship.menuviews;
 
 import battleship.GameChoicesControl;
 import battleship.GetGuessView;
-import battleship.MenuView;
 import java.util.Scanner;
 
 /**
