@@ -9,7 +9,7 @@ import java.util.Scanner;
  */
 public class MainMenuView extends MenuView {
 
-    public final static String[][] menuItems = {
+    public final static String[][] menuArray = {
         {"1", "One player game"},
         {"2", "Two player game"},
         {"H", "Help"},
@@ -17,7 +17,7 @@ public class MainMenuView extends MenuView {
     };
     
     MainMenuView() {
-        setMenuItems(menuItems);
+        super(menuArray);
     }
     
     MainMenuControl mainMenuControl = new MainMenuControl();

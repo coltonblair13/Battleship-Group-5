@@ -4,12 +4,13 @@ import cit26001.group5.battleship.menucontrol.MainMenuControl;
 import cit26001.group5.battleship.menuviews.GameChoicesView;
 import java.awt.Point;
 import java.util.Scanner;
+import cit26001.group5.battleship.interfaces.*;
 
 /**
  *
  * @author Ethan Stewart
  */
-public class GetGuessView {
+public class GetGuessView implements GetLocation {
 
     public int getGuess(Player player) {
         int playerNumber;
@@ -43,7 +44,7 @@ public class GetGuessView {
                     + " Enter a row letter and column number (For example: D3)");
 
             //Get the value entered by the user 
-            String strRowColumn = input.nextLine();
+            String strRowColumn = this.getLocation();
 
             //Trim off all extra blanks from the input
             strRowColumn = strRowColumn.trim();
@@ -118,5 +119,16 @@ public class GetGuessView {
             }
         }
         return found;
+    }
+    
+    /**
+     *
+     * @return
+     */
+    @Override
+    public String getLocation() {
+        Scanner locationIn = new Scanner(System.in);
+        String location = locationIn.nextLine();
+        return location;
     }
 }
