@@ -7,7 +7,7 @@
 package cit26001.group5.battleship.menuviews;
 
 import battleship.BattleshipError;
-import battleship.Game;
+import cit26001.group5.battleship.game.Game;
 import cit26001.group5.battleship.menucontrol.GameMenuControl;
 import java.util.Scanner;
 

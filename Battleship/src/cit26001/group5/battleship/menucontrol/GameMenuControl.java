@@ -5,7 +5,7 @@
  */
 package cit26001.group5.battleship.menucontrol;
 
-import battleship.Game;
+import cit26001.group5.battleship.game.Game;
 import java.util.Scanner;
 
 /**

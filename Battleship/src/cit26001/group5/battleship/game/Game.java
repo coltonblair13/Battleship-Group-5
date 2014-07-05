@@ -1,5 +1,8 @@
 
-package battleship;
+package cit26001.group5.battleship.game;
+
+import battleship.Board;
+import battleship.Player;
 
 /**
  *

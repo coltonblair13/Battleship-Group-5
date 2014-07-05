@@ -6,7 +6,7 @@
 package cit26001.group5.battleship.menucontrol;
 
 import battleship.Board;
-import battleship.Game;
+import cit26001.group5.battleship.game.Game;
 import battleship.Player;
 import cit26001.group5.battleship.menuviews.HelpMenuView;
 import cit26001.group5.battleship.menuviews.GameChoicesView;
