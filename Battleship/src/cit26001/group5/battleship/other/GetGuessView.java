@@ -1,10 +1,11 @@
-package battleship;
+package cit26001.group5.battleship.other;
 
 import cit26001.group5.battleship.menucontrol.MainMenuControl;
 import cit26001.group5.battleship.menuviews.GameChoicesView;
 import java.awt.Point;
 import java.util.Scanner;
 import cit26001.group5.battleship.interfaces.*;
+import cit26001.group5.battleship.customExceptions.MenuException;
 
 /**
  *
@@ -12,7 +13,13 @@ import cit26001.group5.battleship.interfaces.*;
  */
 public class GetGuessView implements GetLocation {
 
-    public int getGuess(Player player) {
+    /**
+     *
+     * @param player
+     * @return
+     * @throws MenuException
+     */
+    public int getGuess(Player player) throws MenuException {
         int playerNumber;
         switch (player.playerNum) {
             case 1:
@@ -23,13 +30,13 @@ public class GetGuessView implements GetLocation {
                 break;
             default:
                 playerNumber = 1;
-                System.out.println("Invalid number inside currentPlayerNumber variable"
+                throw new MenuException("Invalid number inside currentPlayerNumber variable"
                     + "in the Player class.");
         }
         return playerNumber;
     }
     
-    public int getPlayerGuess(Player player) {
+    public int getPlayerGuess(Player player) throws MenuException {
         Scanner input = new Scanner(System.in);     
         Location locationObject = new Location();
         GameChoicesView gameChoicesViewObject = new GameChoicesView();
@@ -40,7 +47,7 @@ public class GetGuessView implements GetLocation {
 
         while (!valid) {
             //Prompt for location on board to be "shot" at.
-            System.out.println("\n\n\t" + player.name + ", it is your turn to guess."
+            System.out.println("\n\n\t" + Player.name + ", it is your turn to guess."
                     + " Enter a row letter and column number (For example: D3)");
 
             //Get the value entered by the user 
@@ -52,7 +59,7 @@ public class GetGuessView implements GetLocation {
             int iLocation = 0;
             int jLocation = 0;
 
-            String[][] listOfSpots = locationObject.makeStringListOfSpots();
+            String[][] listOfSpots = Location.makeStringListOfSpots();
 
             boolean checkValidLocal = false;
             for (iLocation = 0; iLocation < 5; iLocation++) {
@@ -67,7 +74,7 @@ public class GetGuessView implements GetLocation {
 
             }
             if (!checkValidLocal) {
-                new BattleshipError().displayError(
+                throw new MenuException(
                         "Please enter a valid location, "
                         + "or a \"Q\" to quit. Try again.");
             }

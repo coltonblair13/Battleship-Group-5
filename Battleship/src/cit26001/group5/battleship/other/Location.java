@@ -5,7 +5,7 @@
  */
 
 
-package battleship;
+package cit26001.group5.battleship.other;
 
 import java.util.Scanner;
 

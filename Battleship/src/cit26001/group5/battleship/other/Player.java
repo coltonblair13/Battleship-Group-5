@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package battleship;
+package cit26001.group5.battleship.other;
 
 import java.io.Serializable;
 import java.util.Scanner;
@@ -16,7 +16,7 @@ public class Player implements Serializable {
 
     /* With the cohesion/coupling thing, we only need one of each statistic, since 
      each player will have their own object with these attributes. */
-    private static String name;
+    static String name;
     public int playerNum;
     private int playerHits;
     private int playerMisses;

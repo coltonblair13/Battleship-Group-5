@@ -5,9 +5,9 @@
  */
 package cit26001.group5.battleship.menucontrol;
 
-import battleship.Board;
+import cit26001.group5.battleship.other.Board;
 import cit26001.group5.battleship.game.Game;
-import battleship.Player;
+import cit26001.group5.battleship.other.Player;
 import cit26001.group5.battleship.menuviews.HelpMenuView;
 import cit26001.group5.battleship.menuviews.GameChoicesView;
 import java.io.Serializable;

@@ -1,7 +1,8 @@
 package cit26001.group5.battleship.menuviews;
 
 import cit26001.group5.battleship.menucontrol.GameChoicesControl;
-import battleship.GetGuessView;
+import cit26001.group5.battleship.other.GetGuessView;
+import cit26001.group5.battleship.customExceptions.MenuException;
 import java.util.Scanner;
 
 /**
@@ -31,8 +32,10 @@ public class GameChoicesView extends MenuView {
     
     // Display the help menu and get the end users input selection
     public void getInput() {
+        
         String command;
-        do {            
+        do {
+            try {
             System.out.println("player.name" + "'s turn");
             this.display(); // Display the menu
             
@@ -65,6 +68,10 @@ public class GameChoicesView extends MenuView {
                 default: 
                     System.out.println("Invalid input. Please select a valid option from the menu.");
                     continue;
+            }
+            }
+            catch (MenuException exc) {
+                System.out.println(exc.getMessage());
             }
         } while (!command.equals("Q") && !command.equals("G"));  
     }

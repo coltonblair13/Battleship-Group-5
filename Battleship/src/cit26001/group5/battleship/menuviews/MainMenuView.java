@@ -1,13 +1,14 @@
 package cit26001.group5.battleship.menuviews;
 
 import cit26001.group5.battleship.menucontrol.MainMenuControl;
+import cit26001.group5.battleship.interfaces.GetLocation;
 import java.util.Scanner;
 
 /**
  *
  * @author chellybean145
  */
-public class MainMenuView extends MenuView {
+public class MainMenuView extends MenuView implements GetLocation{
 
     public final static String[][] menuArray = {
         {"1", "One player game"},
@@ -16,13 +17,18 @@ public class MainMenuView extends MenuView {
         {"X", "Exit Battleship"}
     };
     
-    MainMenuView() {
+    public MainMenuView() {
         super(menuArray);
     }
     
     MainMenuControl mainMenuControl = new MainMenuControl();
 
-    public void getInput() {
+    /**
+     *
+     * @return
+     */
+    @Override
+    public String getInput() {
 
         String command;
 
@@ -30,7 +36,8 @@ public class MainMenuView extends MenuView {
             this.display(); // display the menu
 
             // get commaned entered
-            command = getCommand();
+            Scanner input = new Scanner(System.in);
+            command = input.nextLine();
 
             switch (command) {
                 case "1":
@@ -50,6 +57,11 @@ public class MainMenuView extends MenuView {
             }
         } while (!command.equals("X"));
 
-        return;
+        return command;
+    }
+
+    @Override
+    public String getLocation() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

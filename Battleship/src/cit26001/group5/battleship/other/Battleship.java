@@ -1,7 +1,8 @@
-package battleship;
+package cit26001.group5.battleship.other;
 
 import cit26001.group5.battleship.menuviews.MainMenuView;
 import java.util.Scanner; /*Imports the Scanner utility to read input*/
+import cit26001.group5.battleship.menuviews.MainMenuView;
 
 
 public class Battleship {
