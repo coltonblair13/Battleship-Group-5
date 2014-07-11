@@ -9,6 +9,7 @@ package cit26001.group5.battleship.menuviews;
 import cit26001.group5.battleship.other.BattleshipError;
 import cit26001.group5.battleship.game.Game;
 import cit26001.group5.battleship.menucontrol.GameMenuControl;
+import cit26001.group5.battleship.customExceptions.GameException;
 import java.util.Scanner;
 
 /**
@@ -43,7 +44,8 @@ public class GameMenuView {
         String command;
         Scanner inFile = new Scanner(System.in);
 
-        do {    
+        do {
+            try{
             this.display(); // display the menu
 
             // get commaned entered
@@ -74,8 +76,10 @@ public class GameMenuView {
                 default: 
                     new BattleshipError().displayError("Invalid command. Please enter a valid command.");
             }
+        } catch (GameException e) {
+                    System.out.println("\n" + e.getMessage());
+                }  
         } while (!command.equals("Q"));
-
     }
     
 

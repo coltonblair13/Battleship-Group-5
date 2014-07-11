@@ -2,6 +2,7 @@ package cit26001.group5.battleship.menucontrol;
 
 import cit26001.group5.battleship.other.Player;
 import cit26001.group5.battleship.menuviews.HelpMenuView;
+import cit26001.group5.battleship.customExceptions.GameException;
 import java.util.Scanner;
 
 /**
@@ -35,7 +36,8 @@ public class GameChoicesControl {
         System.out.println("Are you sure you want to start a new game? (y/n)");
         String userInput = input.next();
         do {
-            switch (userInput) {
+            try {
+              switch (userInput){
                 case "y":
                     new MainMenuControl().startGame(2);
                     break;
@@ -45,6 +47,9 @@ public class GameChoicesControl {
                     System.out.println("Invalid input. Enter a \"y\" for yes, or "
                             + "a \"n\" for no.");
                     break;
+            }
+            } catch (GameException exc) {
+                System.out.println("\n\t" + exc.getMessage());
             }
         } while (!"y".equals(userInput) && !"n".equals(userInput));
     }

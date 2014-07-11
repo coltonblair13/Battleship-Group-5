@@ -6,6 +6,7 @@
 package cit26001.group5.battleship.menucontrol;
 
 import cit26001.group5.battleship.game.Game;
+import cit26001.group5.battleship.customExceptions.GameException;
 import java.util.Scanner;
 
 /**
@@ -18,10 +19,10 @@ public class GameMenuControl {
 
     }
 
-    GameMenuControl(Game game) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    GameMenuControl(Game game) throws GameException {
+        throw new GameException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+    
     public void displayGameSetup() {
         this.displayMenuBorder();
         System.out.println("\tPlace the location of your ships.\n");
@@ -48,28 +49,28 @@ public class GameMenuControl {
         System.out.println("\t===============================================================\n");
     }
 
-    void takeTurn() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    void takeTurn() throws GameException {
+        throw new GameException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    void displayBoard() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    void displayBoard()throws GameException {
+        throw new GameException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    void startNewGame() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    void startNewGame()throws GameException {
+        throw new GameException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    void displayStatistics() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    void displayStatistics()throws GameException {
+        throw new GameException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    void displayPreferencesMenu() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    void displayPreferencesMenu()throws GameException {
+        throw new GameException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    void displayHelpMenu() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    void displayHelpMenu()throws GameException {
+        throw new GameException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public String[] sortPlayerList(String[] playerList) {
