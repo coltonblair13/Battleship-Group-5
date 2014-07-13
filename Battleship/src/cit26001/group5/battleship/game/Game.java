@@ -9,20 +9,7 @@ import cit26001.group5.battleship.other.Player;
  * @author Adam Kelley
  */
 
-/*
-Hey Adam-
-I was helping Chelsea with the creation of the Player class, like we'd talked
-about on Thursday. In order to streamline the program more, I commented out your
-player-related instance variables in this class, so it currently just contains
-an instance variable for the winning message and the function to display that
-(I also had to make the call to display the winner and loser into strings so
-it would compile and run correctly. We can change that when we build the
-actual game).
-This was the best way we could figure out to make sure both yours and hers
-work as they're supposed to. E-mail or text me if you see any issues or need
-me to explain that better.
--Ethan Stewart
-*/
+
 public class Game {
     String gameType;
     Player currentPlayer;
