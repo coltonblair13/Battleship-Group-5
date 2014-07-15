@@ -14,30 +14,15 @@ import java.util.Scanner;
  * @author colto_000/Colton Blair
  */
 public class Location {
-    /*int row;
-    int column;
-    Player player;
-    int displayValue = 0;
-    int hits = 0;
+    private int numRow;
+    private int numCol;
+    public String[][] listOfSpots;
     
-    /**
-     *
-     * @return
-     */
-    
-    /*int size;
-
-    public Location(int size) {
-        this.size = size;
+    Location() {
+        numRow = 5;
+        numCol = 5;
+        listOfSpots = Location.makeStringListOfSpots();
     }
-
-    public int getSize() {
-        return size;
-
-    }*/
-    
-    // public static String[][] makeStringListOfSpots() {
-    //Chelsea here placing the static function, I am just not sure yet how to call it later without messing the game up...
     
     public static String[][] makeStringListOfSpots() {
         String[][] listOfSpots = new String[5][5];

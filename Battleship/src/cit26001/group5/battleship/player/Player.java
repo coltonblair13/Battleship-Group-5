@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package player;
+package cit26001.group5.battleship.player;
 
 import cit26001.group5.battleship.other.Board;
 import cit26001.group5.battleship.other;
