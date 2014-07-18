@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cit26001.group5.battleship.other;
+package cit26001.group5.battleship.rewrite;
 
 import java.io.Serializable;
 import java.util.Scanner;
@@ -131,10 +131,7 @@ public class Player implements Serializable {
 
     /*  Nested class inside the Player class for the locations of players's ships. */
     private class PlayerLocations {
-
-        public String[][] personalBoard;
-        public String[][] hitMissBoard;
-
+        
         private String setLoser() {
             //This will contain code to set who the loser is.
             String loser = "Person";

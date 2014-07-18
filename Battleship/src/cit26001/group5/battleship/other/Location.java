@@ -21,22 +21,22 @@ public class Location {
     Location() {
         numRow = 5;
         numCol = 5;
-        listOfSpots = Location.makeStringListOfSpots();
+        listOfSpots = makeStringListOfSpots();
     }
     
-    public static String[][] makeStringListOfSpots() {
-        String[][] listOfSpots = new String[5][5];
+    public String[][] makeStringListOfSpots() {
+        String[][] spotArray = new String[this.numRow][this.numCol];
         String[] locationRow = { "A", "B", "C", "D", "E"};
         String[] locationColumn = { "1", "2", "3", "4", "5"};
         for (int row = 0; row < 5; row++)
         {
             for (int col = 0; col < 5; col++)
             {
-                listOfSpots[row][col] = locationRow[row] + locationColumn[col];
+                spotArray[row][col] = locationRow[row] + locationColumn[col];
             }
         }
         
-        return listOfSpots;
+        return spotArray;
     }
     
     public void displayListOfSpots() {

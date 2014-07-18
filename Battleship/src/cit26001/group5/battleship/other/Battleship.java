@@ -1,8 +1,10 @@
 package cit26001.group5.battleship.other;
 
+import cit26001.group5.battleship.frames.*;
 import cit26001.group5.battleship.menuviews.MainMenuView;
-import java.util.Scanner; /*Imports the Scanner utility to read input*/
 import cit26001.group5.battleship.menuviews.MainMenuView;
+import java.util.Scanner;
+import javax.lang.model.type.ErrorType;
 
 
 public class Battleship {
@@ -16,7 +18,27 @@ public class Battleship {
             + "contains part of a ship, it's a hit; otherwise, it's a miss.";
 
     public static void main(String[] args) {
-        new MainMenuView().getInput();
+        Battleship battleship = null;
+        try {
+            battleship = new Battleship();
+            
+            java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                Battleship.mainFrame = new MainFrame();
+                
+                Battleship.mainFrame.setVisible(true);
+            }
+        });
+        }
+        
+        catch (Throwable exc) {
+            ErrorType.displayErrorMsg("Unexpected error: " + exc.getMessage());
+            ErrorType.displayErrorMsg(exc.getStackTrace().toString());
+        }
+        finally {
+            if (Battleship.mainFrame != null)
+                Battleship.mainFrame.dispose();
+        }
     }
 
     public void displayHelp() {
