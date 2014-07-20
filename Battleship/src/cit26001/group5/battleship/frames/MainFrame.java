@@ -120,6 +120,11 @@ public class MainFrame extends javax.swing.JFrame {
         jtWelcome.setText("Welcome to Battleship! The first one to sink all opposing ships wins!");
         jtWelcome.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jtWelcome.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jtWelcome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtWelcomeActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jpBodyLayout = new javax.swing.GroupLayout(jpBody);
         jpBody.setLayout(jpBodyLayout);
@@ -177,6 +182,10 @@ public class MainFrame extends javax.swing.JFrame {
     private void jButtonHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHelpActionPerformed
         HelpMenuView.display();
     }//GEN-LAST:event_jButtonHelpActionPerformed
+
+    private void jtWelcomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtWelcomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtWelcomeActionPerformed
 
     /**
      * @param args the command line arguments
