@@ -3,6 +3,7 @@ package cit26001.group5.battleship.other;
 import cit26001.group5.battleship.frames.*;
 import cit26001.group5.battleship.menuviews.MainMenuView;
 import cit26001.group5.battleship.menuviews.MainMenuView;
+import java.util.Arrays;
 import java.util.Scanner;
 import javax.lang.model.type.ErrorType;
 
@@ -23,6 +24,7 @@ public class Battleship {
             battleship = new Battleship();
             
             java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 Battleship.mainFrame = new MainFrame();
                 
@@ -33,7 +35,7 @@ public class Battleship {
         
         catch (Throwable exc) {
             ErrorType.displayErrorMsg("Unexpected error: " + exc.getMessage());
-            ErrorType.displayErrorMsg(exc.getStackTrace().toString());
+            ErrorType.displayErrorMsg(Arrays.toString(exc.getStackTrace()));
         }
         finally {
             if (Battleship.mainFrame != null)

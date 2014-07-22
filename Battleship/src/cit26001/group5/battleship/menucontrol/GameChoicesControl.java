@@ -36,8 +36,7 @@ public class GameChoicesControl {
         System.out.println("Are you sure you want to start a new game? (y/n)");
         String userInput = input.next();
         do {
-            try {
-              switch (userInput){
+            switch (userInput){
                 case "y":
                     new MainMenuControl().startGame(2);
                     break;
@@ -47,9 +46,6 @@ public class GameChoicesControl {
                     System.out.println("Invalid input. Enter a \"y\" for yes, or "
                             + "a \"n\" for no.");
                     break;
-            }
-            } catch (GameException exc) {
-                System.out.println("\n\t" + exc.getMessage());
             }
         } while (!"y".equals(userInput) && !"n".equals(userInput));
     }
