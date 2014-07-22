@@ -7,7 +7,8 @@
 package cit26001.group5.battleship.frames;
 
 import cit26001.group5.battleship.other.GetGuessView;
-import cit26001.group5.battleship.other.Location;
+import cit26001.group5.battleship.other.*;
+import cit26001.group5.battleship.customExceptions.*;
 
 /**
  *
@@ -94,7 +95,6 @@ public class GuessLocationBoard extends javax.swing.JFrame {
         );
 
         jtGetPlayerGuess.setFont(new java.awt.Font("Verdana", 0, 13)); // NOI18N
-        jtGetPlayerGuess.setText("jTextField1");
         jtGetPlayerGuess.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtGetPlayerGuess(evt);
@@ -140,7 +140,7 @@ public class GuessLocationBoard extends javax.swing.JFrame {
                         .addComponent(jbGetGuess))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jpLocation, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -181,7 +181,14 @@ public class GuessLocationBoard extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonGetPlayerGuess(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGetPlayerGuess
-        GetGuessView.getGuess();
+        Player player = new Player();
+        GetGuessView getGuessView = new GetGuessView();
+        try {
+        getGuessView.getGuess(player);
+        }
+        catch (MenuException exc) {
+            System.out.println(exc.getMessage());
+        }
     }//GEN-LAST:event_jButtonGetPlayerGuess
 
     private void jpLocation(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jpLocation

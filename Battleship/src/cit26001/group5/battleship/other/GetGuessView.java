@@ -13,17 +13,11 @@ import cit26001.group5.battleship.customExceptions.MenuException;
  */
 public class GetGuessView implements GetLocation {
 
-    public static void getGuess() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public static void getGuess() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
     public static void getPlayerGuess() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
+    public int playerNumber;
 
     /**
      *
@@ -59,7 +53,7 @@ public class GetGuessView implements GetLocation {
 
         while (!valid) {
             //Prompt for location on board to be "shot" at.
-            System.out.println("\n\n\t" + Player.name + ", it is your turn to guess."
+            System.out.println("\n\n\t" + "Player.name" + ", it is your turn to guess."
                     + " Enter a row letter and column number (For example: D3)");
 
             //Get the value entered by the user 

@@ -31,7 +31,7 @@ public class Player implements Serializable {
     private int hitsLeftToWin;
 
     /* This is the default constructor, which sets the default value for the class instance variables. */
-    Player() {
+    public Player() {
         name = "Player1";
         playerNum = 1;
         playerHits = 0;

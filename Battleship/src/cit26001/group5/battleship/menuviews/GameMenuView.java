@@ -19,7 +19,7 @@ import java.util.Scanner;
 public class GameMenuView {
     
     private Game game;
-    private final GameMenuControl gameMenuControl ; 
+    private GameMenuControl gameMenuControl = new GameMenuControl(); 
 
 
     private final static String[][] menuItems = {
@@ -33,7 +33,12 @@ public class GameMenuView {
     };
 
     public GameMenuView(Game game) {
+        try {
         this.gameMenuControl = new GameMenuControl(game);
+        }
+        catch (GameException exc) {
+            System.out.println(exc.getMessage());
+        }
         
     }
 

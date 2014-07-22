@@ -3,6 +3,7 @@ package cit26001.group5.battleship.other;
 import cit26001.group5.battleship.frames.*;
 import cit26001.group5.battleship.menuviews.MainMenuView;
 import cit26001.group5.battleship.menuviews.MainMenuView;
+import cit26001.group5.battleship.menucontrol.MainMenuControl;
 import java.util.Arrays;
 import java.util.Scanner;
 import javax.lang.model.type.ErrorType;
@@ -19,28 +20,26 @@ public class Battleship {
             + "contains part of a ship, it's a hit; otherwise, it's a miss.";
 
     public static void main(String[] args) {
-        Battleship battleship = null;
+        /*Battleship battleship = null;
+        final MainFrame mainFrame = new MainFrame();
         try {
             battleship = new Battleship();
             
             java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                Battleship.mainFrame = new MainFrame();
-                
-                Battleship.mainFrame.setVisible(true);
+                mainFrame.setVisible(true);
             }
         });
         }
-        
-        catch (Throwable exc) {
-            ErrorType.displayErrorMsg("Unexpected error: " + exc.getMessage());
-            ErrorType.displayErrorMsg(Arrays.toString(exc.getStackTrace()));
-        }
+
         finally {
-            if (Battleship.mainFrame != null)
-                Battleship.mainFrame.dispose();
-        }
+            if (mainFrame != null)
+                mainFrame.dispose();
+        }*/
+        
+        MainMenuControl mmcObj = new MainMenuControl();
+        mmcObj.startGame(2);
     }
 
     public void displayHelp() {

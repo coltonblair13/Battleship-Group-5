@@ -10,7 +10,7 @@ package cit26001.group5.battleship.other;
  *
  * @author colto_000
  */
-class BattleshipError {
+public class BattleshipError {
 
     public BattleshipError() {
     }

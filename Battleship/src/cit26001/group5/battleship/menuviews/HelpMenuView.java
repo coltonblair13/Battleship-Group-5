@@ -36,7 +36,7 @@ public class HelpMenuView extends MenuView {
     /**
      *
      */
-    public void getInput() {       
+    public String getInput() {       
               
         String command;
         
@@ -72,6 +72,7 @@ public class HelpMenuView extends MenuView {
                     System.out.println("Invalid input. Please select a valid option from the menu.");
             }
         } while (!command.equals("Q"));  
+        return command;
         
     }
 
@@ -80,4 +81,15 @@ public class HelpMenuView extends MenuView {
     private String getCommand() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
+    @Override
+    public void display() {
+        System.out.println("\n\t===============================================================");
+        System.out.println("\tEnter the letter associated with one of the following commands:");
+
+        for (String[] menuItem : menuItems) {
+            System.out.println("\t   " + menuItem[0] + "\t" + menuItem[1]);
+        }
+        System.out.println("\t===============================================================\n");
+    } 
 }

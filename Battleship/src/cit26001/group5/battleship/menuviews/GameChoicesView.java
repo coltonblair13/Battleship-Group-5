@@ -4,12 +4,13 @@ import cit26001.group5.battleship.menucontrol.GameChoicesControl;
 import cit26001.group5.battleship.other.GetGuessView;
 import cit26001.group5.battleship.customExceptions.MenuException;
 import cit26001.group5.battleship.other.Player;
+import cit26001.group5.battleship.interfaces.*;
 
 /**
  *
  * @author Ethan Stewart
  */
-public class GameChoicesView extends MenuView {
+public class GameChoicesView extends MenuView implements EnterInfo{
     private final static String[][] menuItems = {
         {"G", "Make your guess"},
         {"P", "Display your board"}, 
@@ -23,7 +24,7 @@ public class GameChoicesView extends MenuView {
     // Create instance of the GameChoicesControlControl (action) class
     GameChoicesControl gameChoicesControl = new GameChoicesControl();
     GetGuessView getGuessViewObject = new GetGuessView();
-    int playerNumber = 1;
+    public int playerNumber = 1;
     private Player player;
     
     // Default constructor
@@ -35,8 +36,10 @@ public class GameChoicesView extends MenuView {
 
     /**
      *
+     * @param player
+     * @return 
      */
-    public void getInput() {
+    public String getInput(Player player) {
         
         String command = null;
         do {
@@ -77,7 +80,8 @@ public class GameChoicesView extends MenuView {
             catch (MenuException exc) {
                 System.out.println(exc.getMessage());
             }
-        } while (!command.equals("Q") && !command.equals("G"));  
+        } while (!command.equals("Q") && !command.equals("G"));
+        return command;
     }
 
     private String getCommand() {
