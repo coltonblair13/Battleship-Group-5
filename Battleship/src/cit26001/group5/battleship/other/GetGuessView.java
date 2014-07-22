@@ -13,6 +13,18 @@ import cit26001.group5.battleship.customExceptions.MenuException;
  */
 public class GetGuessView implements GetLocation {
 
+    public static void getGuess() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public static void getGuess() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public static void getPlayerGuess() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     /**
      *
      * @param player

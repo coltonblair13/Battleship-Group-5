@@ -6,6 +6,9 @@
 
 package cit26001.group5.battleship.frames;
 
+import cit26001.group5.battleship.other.GetGuessView;
+import cit26001.group5.battleship.other.Location;
+
 /**
  *
  * @author Adam
@@ -222,6 +225,7 @@ public class GuessLocationBoard extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new GuessLocationBoard().setVisible(true);
             }

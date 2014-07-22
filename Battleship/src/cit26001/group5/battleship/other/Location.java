@@ -14,6 +14,10 @@ import java.util.Scanner;
  * @author colto_000/Colton Blair
  */
 public class Location {
+
+    public static void displayListsOfSpots() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     private int numRow;
     private int numCol;
     public String[][] listOfSpots;
