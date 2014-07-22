@@ -4,19 +4,16 @@
  * and open the template in the editor.
  */
 
-package cit26001.group5.battleship.other;
+package cit26001.group5.battleship.frames;
 
 /**
  *
  * @author colto_000
  */
-public class BattleshipError {
+class Board {
 
-    public BattleshipError() {
-    }
-
-    public void displayError(String errorText) {
-        System.out.println(errorText);
+    static void displaySize() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

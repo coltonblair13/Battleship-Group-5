@@ -19,7 +19,7 @@ public class GameMenuControl {
 
     }
 
-    GameMenuControl(Game game) throws GameException {
+    public GameMenuControl(Game game) throws GameException {
         throw new GameException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
@@ -49,27 +49,27 @@ public class GameMenuControl {
         System.out.println("\t===============================================================\n");
     }
 
-    void takeTurn() throws GameException {
+    public void takeTurn() throws GameException {
         throw new GameException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    void displayBoard()throws GameException {
+    public void displayBoard()throws GameException {
         throw new GameException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    void startNewGame()throws GameException {
+    public void startNewGame()throws GameException {
         throw new GameException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    void displayStatistics()throws GameException {
+    public void displayStatistics()throws GameException {
         throw new GameException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    void displayPreferencesMenu()throws GameException {
+    public void displayPreferencesMenu()throws GameException {
         throw new GameException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    void displayHelpMenu()throws GameException {
+    public void displayHelpMenu()throws GameException {
         throw new GameException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

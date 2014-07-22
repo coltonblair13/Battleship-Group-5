@@ -14,6 +14,10 @@ import java.util.Scanner;
  * @author colto_000/Colton Blair
  */
 public class Location {
+
+    public static void displayListsOfSpots() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     private int numRow;
     private int numCol;
     public String[][] listOfSpots;
@@ -24,8 +28,8 @@ public class Location {
         listOfSpots = makeStringListOfSpots();
     }
     
-    public String[][] makeStringListOfSpots() {
-        String[][] spotArray = new String[this.numRow][this.numCol];
+    public static String[][] makeStringListOfSpots() {
+        String[][] spotArray = new String[5][5];
         String[] locationRow = { "A", "B", "C", "D", "E"};
         String[] locationColumn = { "1", "2", "3", "4", "5"};
         for (int row = 0; row < 5; row++)

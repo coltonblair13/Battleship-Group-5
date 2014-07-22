@@ -6,9 +6,6 @@
 package cit26001.group5.battleship.player;
 
 import cit26001.group5.battleship.other.Board;
-import cit26001.group5.battleship.other;
-import cit26001.group5.battleship.menuviews;
-import battleship.Player;
 import cit26001.group5.battleship.customExceptions.GameException;
 import cit26001.group5.battleship.game.Game;
 
@@ -51,7 +48,7 @@ public class Player implements Serializable {
      * @return
      */
     public String getName() {
-        return this.name;
+        return Player.name;
     }
      Player(Game game) throws GameException {
         throw new GameException("Sorry, we please type a real name"); //To change body of generated methods, choose Tools | Templates.
@@ -63,7 +60,7 @@ public class Player implements Serializable {
         playerWinPercent = Math.round(playerWinPercent * 10) / 10;
         double playerLosePercent = 100 - playerWinPercent;
         System.out.println("GAME OVER!");
-        System.out.println("\nStats for " + this.name
+        System.out.println("\nStats for " + Player.name
                 + "\nHits:\t\t" + player.playerHits
                 + "\nMisses:\t\t" + player.playerMisses
                 + "\nTotal Shots:\t" + playerShots
@@ -74,7 +71,7 @@ public class Player implements Serializable {
     private Player changePlayerName(Player player) {
         Scanner input = new Scanner(System.in);
         System.out.println("Please enter a name for Player " + player.playerNum);
-        player.name = input.next();
+        Player.name = input.next();
         return player;
     }
 

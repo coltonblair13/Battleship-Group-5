@@ -180,7 +180,8 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonExit
 
     private void jButtonHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHelpActionPerformed
-        HelpMenuView.display();
+        HelpMenuView helpMenObj = new HelpMenuView();
+        helpMenObj.display();
     }//GEN-LAST:event_jButtonHelpActionPerformed
 
     private void jtWelcomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtWelcomeActionPerformed

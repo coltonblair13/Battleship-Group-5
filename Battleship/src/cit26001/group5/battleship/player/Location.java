@@ -4,19 +4,16 @@
  * and open the template in the editor.
  */
 
-package cit26001.group5.battleship.other;
+package cit26001.group5.battleship.player;
 
 /**
  *
  * @author colto_000
  */
-public class BattleshipError {
+class Location {
 
-    public BattleshipError() {
-    }
-
-    public void displayError(String errorText) {
-        System.out.println(errorText);
+    String[][] makeStringListOfSpots() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

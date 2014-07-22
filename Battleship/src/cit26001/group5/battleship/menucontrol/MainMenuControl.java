@@ -10,6 +10,7 @@ import cit26001.group5.battleship.game.Game;
 import cit26001.group5.battleship.other.Player;
 import cit26001.group5.battleship.menuviews.HelpMenuView;
 import cit26001.group5.battleship.menuviews.GameChoicesView;
+import cit26001.group5.battleship.interfaces.*;
 import java.io.Serializable;
 
 /**
@@ -20,7 +21,7 @@ import java.io.Serializable;
 
 public class MainMenuControl implements Serializable {
 
-    public void startGame(long noPlayers) {
+    public static void startGame(long noPlayers) {
         /*
          This function will contain code that will allow the user to start
          a new game.
@@ -32,14 +33,31 @@ public class MainMenuControl implements Serializable {
 
         Game game;
         if (noPlayers == 1) {
-            System.out.println("One player game still under construction. Please "
+            System.out.println("One player option is not available. Please "
                     + "choose a different option.");
         } else {
-            game = this.create("TWO_PLAYER");
+            Player player1 = new Player();
+            Player player2 = new Player();
+            GameChoicesView gameChoicesViewObject = new GameChoicesView();
+            Board boardObject = new Board();
+            int currentPlayer;
+
+            Player playerToPass;
+            for (int i = 0; i < 12; i++) {
+                if (gameChoicesViewObject.playerNumber == 1) {
+                    playerToPass = player1;
+                } else {
+                    playerToPass = player2;
+                }
+                String command = gameChoicesViewObject.getInput(playerToPass);
+                if ("Q".equals(command)) {
+                    break;
+                }
+            }
         }
     }
 
-    public Game create(String gameType) {
+    /*public Game create(String gameType) {
 
         if ("TWO_PLAYER".equals(gameType)) {
             Player player1 = new Player();
@@ -65,7 +83,7 @@ public class MainMenuControl implements Serializable {
         Game placeholder = new Game();
 
         return placeholder;
-    }
+    }*/
 
     public void displayHelpMenu() {
         /*

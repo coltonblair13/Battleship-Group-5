@@ -23,12 +23,12 @@ public class Player implements Serializable {
     public int playerNum;
     public String[][] personalBoard;
     public String[][] hitMissBoard;
-    private int playerHits;
-    private int playerMisses;
-    private int playerWins;
-    private int playerLosses;
-    private int playerTotalGames;
-    private int hitsLeftToWin;
+    private final int playerHits;
+    private final int playerMisses;
+    private final int playerWins;
+    private final int playerLosses;
+    private final int playerTotalGames;
+    private final int hitsLeftToWin;
 
     /* This is the default constructor, which sets the default value for the class instance variables. */
     Player() {

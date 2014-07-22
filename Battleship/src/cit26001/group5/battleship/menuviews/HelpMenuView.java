@@ -7,7 +7,6 @@
 package cit26001.group5.battleship.menuviews;
 
 import cit26001.group5.battleship.menucontrol.HelpMenuControl;
-import java.util.Scanner;
 
 /**
  *
@@ -25,7 +24,7 @@ public class HelpMenuView extends MenuView {
     };
     
     // Create instance of the HelpMenuControl (action) class
-    private HelpMenuControl helpMenuControl = new HelpMenuControl();
+    private final HelpMenuControl helpMenuControl = new HelpMenuControl();
     
     // Default constructor
     public HelpMenuView() {
@@ -33,7 +32,11 @@ public class HelpMenuView extends MenuView {
     } 
     
     // Display the help menu and get the end users input selection
-    public void getInput() {       
+
+    /**
+     *
+     */
+    public String getInput() {       
               
         String command;
         
@@ -67,12 +70,26 @@ public class HelpMenuView extends MenuView {
                     break;
                 default: 
                     System.out.println("Invalid input. Please select a valid option from the menu.");
-                    continue;
             }
         } while (!command.equals("Q"));  
+        return command;
         
-         return;
     }
 
         // displays the help menu
+
+    private String getCommand() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    @Override
+    public void display() {
+        System.out.println("\n\t===============================================================");
+        System.out.println("\tEnter the letter associated with one of the following commands:");
+
+        for (String[] menuItem : menuItems) {
+            System.out.println("\t   " + menuItem[0] + "\t" + menuItem[1]);
+        }
+        System.out.println("\t===============================================================\n");
+    } 
 }

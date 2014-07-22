@@ -11,8 +11,7 @@ import java.util.Scanner;
 public class MainMenuView extends MenuView implements GetLocation{
 
     public final static String[][] menuArray = {
-        {"1", "One player game"},
-        {"2", "Two player game"},
+        {"Start game"},
         {"H", "Help"},
         {"X", "Exit Battleship"}
     };
